@@ -168,7 +168,7 @@ El trabajo original se conserva en `legacy/` para comparar el antes y el despué
 techo = desc.sort_values("pct_5", ascending=False).head(3)
 ```
 
-- **Muestra:** `{python} n_total` personas que ya emprenden (ninguna es solo estudiante ni "no emprendedora"). Respondieron **19 ítems en escala Likert de 5 puntos** (1 = nada importante, 5 = muy importante) y 6 variables de contexto. No hay respuestas faltantes.
+- **Muestra:** `{python} n_total` personas que ya emprenden (ninguna es solo estudiante ni "no emprendedora"). Respondieron **19 ítems en escala Likert de 5 puntos** (de 1 a 5, donde 5 es la mayor importancia; las anclas verbales exactas del instrumento están por confirmar) y 6 variables de contexto. No hay respuestas faltantes.
 - **Respuestas planas:** `{python} n_planas` personas respondieron el mismo valor (5) en las 19 preguntas. No aportan información sobre *qué* las motiva y empujan todas las correlaciones hacia arriba, así que se excluyen del análisis principal (n = `{python} n_analisis`).
 - **Efecto techo:** en `{python} n_techo` de 19 ítems más de la mitad de las personas respondió 5. Por eso se usan **correlaciones policóricas**, diseñadas para respuestas ordinales, en lugar de Pearson, que trata 1–5 como números continuos y subestima la asociación cuando casi todo está en el extremo.
 - **Ítems invertidos:** ninguno. Todas las correlaciones entre ítems son positivas.
