@@ -1,0 +1,10 @@
+# Configuración de Streamlit (local y Community Cloud).
+[browser]
+# Privacidad: no enviar estadísticas de uso a Streamlit.
+gatherUsageStats = false
+
+[theme]
+primaryColor = "#2a78d6"
+backgroundColor = "#fcfcfb"
+textColor = "#0b0b0b"
+font = "sans serif"

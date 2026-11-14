@@ -1,0 +1,6 @@
+# Dependencias de la demo en Streamlit Community Cloud (versiones exactas).
+# Solo lo necesario: el modelo llega como JSON, así que no hace falta scikit-learn.
+# Este archivo, en la carpeta del entrypoint, tiene prioridad sobre el uv.lock de la raíz.
+streamlit==1.66.1
+plotly==7.1.0
+numpy==2.5.4
