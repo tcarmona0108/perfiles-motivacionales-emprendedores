@@ -28,8 +28,17 @@ def _crudo_falso(tmp_path, filas):
 
 
 def _fila(items, edu="Universitaria"):
-    return ["CiudadX", "Emprendedor (a)", 3, "Negocio X", "Femenino",
-            "Entre 25 y 35 años", "Casada (o)", edu, *items]  # fmt: skip
+    return [
+        "CiudadX",
+        "Emprendedor (a)",
+        3,
+        "Negocio X",
+        "Femenino",
+        "Entre 25 y 35 años",
+        "Casada (o)",
+        edu,
+        *items,
+    ]
 
 
 def test_leer_y_limpiar_elimina_identificadores(tmp_path, cfg):

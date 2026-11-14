@@ -124,13 +124,18 @@ def _codificar(x: np.ndarray) -> tuple[np.ndarray, int]:
     return codigos, len(cats)
 
 
-def policorica_par(x: np.ndarray, y: np.ndarray) -> float:
+def policorica_par(x: np.ndarray, y: np.ndarray, correccion: float = 0.5) -> float:
     """Correlación policórica entre dos variables ordinales (ML en dos pasos).
 
     Parámetros
     ----------
     x, y:
         Vectores de respuestas ordinales de la misma longitud.
+    correccion:
+        Corrección de continuidad que se suma a las celdas vacías de la tabla de
+        contingencia (0.5, como ``psych::polychoric``). Con n ≈ 120 y efecto
+        techo, ~22 % de las celdas están vacías; sin corrección, la máxima
+        verosimilitud empuja ρ hacia ±1 (casos Heywood en la EFA).
 
     Retorna
     -------
@@ -144,6 +149,7 @@ def policorica_par(x: np.ndarray, y: np.ndarray) -> float:
     tx, ty = _umbrales(cx, mx), _umbrales(cy, my)
     tabla = np.zeros((mx, my))
     np.add.at(tabla, (cx, cy), 1)
+    tabla[tabla == 0] = correccion
 
     # Φ(τ) marginales: bordes de la grilla de la CDF bivariada.
     fx = np.concatenate([[0.0], norm.cdf(tx), [1.0]])
@@ -188,7 +194,7 @@ def suavizar_definida_positiva(r: np.ndarray, minimo: float = 1e-6) -> tuple[np.
     return r2, True
 
 
-def matriz_policorica(df: pd.DataFrame) -> pd.DataFrame:
+def matriz_policorica(df: pd.DataFrame, correccion: float = 0.5) -> pd.DataFrame:
     """Matriz de correlaciones policóricas de todas las columnas.
 
     Parámetros
@@ -207,7 +213,7 @@ def matriz_policorica(df: pd.DataFrame) -> pd.DataFrame:
     r = np.eye(p)
     for i in range(p):
         for j in range(i + 1, p):
-            r[i, j] = r[j, i] = policorica_par(x[:, i], x[:, j])
+            r[i, j] = r[j, i] = policorica_par(x[:, i], x[:, j], correccion)
     r, suavizada = suavizar_definida_positiva(r)
     salida = pd.DataFrame(r, index=df.columns, columns=df.columns)
     salida.attrs["suavizada"] = suavizada

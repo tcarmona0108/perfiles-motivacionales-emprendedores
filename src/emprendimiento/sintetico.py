@@ -146,8 +146,14 @@ def muestrear(modelo: ModeloCopula, n: int, rng: np.random.Generator) -> pd.Data
     }
     if modelo.anios is not None:
         demo["anios_funcionamiento"] = rng.choice(modelo.anios, size=n)
-    columnas = ["ocupacion", "anios_funcionamiento", "genero", "rango_edad", "estado_civil",
-                "nivel_educativo"]  # fmt: skip
+    columnas = [
+        "ocupacion",
+        "anios_funcionamiento",
+        "genero",
+        "rango_edad",
+        "estado_civil",
+        "nivel_educativo",
+    ]
     demo_df = pd.DataFrame(demo)[[c for c in columnas if c in demo]]
     return pd.concat([demo_df, x.astype(int)], axis=1)
 

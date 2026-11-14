@@ -1,124 +1,124 @@
 ocupacion,anios_funcionamiento,genero,rango_edad,estado_civil,nivel_educativo,p01,p02,p03,p04,p05,p06,p07,p08,p09,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19
-Emprendedor (a),7.0,Masculino,Entre 35 y 45 años,Soltera (o),Especialización,3,3,3,1,4,3,3,2,3,4,4,3,3,3,1,1,1,3,4
-Emprendedor (a),2.0,Femenino,Entre 35 y 45 años,Soltera (o),Universitaria,4,5,1,3,1,4,5,4,2,1,4,1,1,3,4,3,3,3,3
-Emprendedor (a),1.0,Femenino,Entre 45 y 55 años,Soltera (o),Universitaria,3,4,4,3,5,4,3,2,3,1,4,2,2,3,3,4,3,3,3
-Emprendedor (a),7.0,Femenino,Entre 35 y 45 años,Soltera (o),Bachillerato,5,4,5,5,5,5,5,5,5,4,4,4,2,5,4,2,3,3,2
-Emprendedor (a),2.0,Masculino,Entre 45 y 55 años,Casada (o),Universitaria,5,5,5,4,5,5,5,5,5,4,4,4,2,5,4,3,3,5,4
-Ambos,2.0,Masculino,Entre 45 y 55 años,Otro,Técnica,4,4,4,4,3,4,5,4,3,2,4,2,2,5,4,3,3,4,2
-Emprendedor (a),0.0,Masculino,Entre 35 y 45 años,Casada (o),Tecnología,5,3,5,3,5,4,4,4,5,4,4,3,3,4,3,3,1,2,3
-Emprendedor (a),3.0,Femenino,Entre 35 y 45 años,Otro,Universitaria,5,5,5,5,4,5,5,4,4,4,4,3,3,4,5,3,3,4,5
-Ambos,8.0,Masculino,Entre 25 y 35 años,Casada (o),Universitaria,5,4,4,5,3,5,5,5,4,5,5,5,3,5,5,5,4,4,4
-Emprendedor (a),10.0,Femenino,Entre 25 y 35 años,Soltera (o),Especialización,5,4,5,4,5,5,5,5,4,3,3,3,3,4,4,5,4,3,4
-Emprendedor (a),9.0,Masculino,Entre 25 y 35 años,Casada (o),Técnica,5,5,4,5,4,5,5,5,5,5,4,5,5,4,4,5,5,5,4
-Ambos,2.0,Masculino,Entre 25 y 35 años,Casada (o),Universitaria,3,5,5,4,5,2,3,2,4,4,3,4,1,4,4,2,2,2,2
-Emprendedor (a),2.0,Masculino,Entre 25 y 35 años,Soltera (o),Especialización,3,5,5,4,2,4,5,4,3,2,1,2,1,5,5,4,3,1,1
-Emprendedor (a),3.0,Masculino,Entre 35 y 45 años,Otro,Tecnología,4,3,4,3,2,5,5,4,4,5,4,5,2,5,4,2,1,4,3
-Emprendedor (a),3.0,Femenino,Entre 45 y 55 años,Soltera (o),Universitaria,3,4,5,3,2,2,3,3,3,1,1,2,1,3,4,3,1,1,1
-Emprendedor (a),0.0,Femenino,Entre 45 y 55 años,Soltera (o),Especialización,2,3,3,1,5,3,2,2,2,1,2,1,3,3,1,2,1,1,1
-Emprendedor (a),1.0,Masculino,Entre 45 y 55 años,Casada (o),Universitaria,5,4,4,4,5,5,5,5,3,3,3,4,4,4,4,5,4,3,2
-Emprendedor (a),4.0,Femenino,Más de 55 años,Casada (o),Maestría,4,5,4,4,2,4,4,5,3,3,3,4,4,5,4,4,2,4,4
-Emprendedor (a),1.0,Masculino,Entre 35 y 45 años,Casada (o),Universitaria,3,3,4,3,5,5,5,5,2,1,2,3,1,5,4,3,1,3,3
-Ambos,1.0,Femenino,Más de 55 años,Casada (o),Maestría,4,5,5,3,3,5,5,4,3,2,2,1,4,3,3,4,4,2,4
-Ambos,10.0,Femenino,Entre 25 y 35 años,Soltera (o),Maestría,5,5,5,5,3,5,5,5,3,4,2,4,1,5,5,5,5,1,1
-Ambos,5.0,Masculino,Menos de 25 años,Soltera (o),Técnica,4,4,4,3,3,5,5,4,3,4,2,5,4,4,3,4,2,1,3
-Emprendedor (a),8.0,Femenino,Entre 45 y 55 años,Soltera (o),Maestría,3,5,5,3,4,3,4,2,2,1,1,1,2,4,1,1,1,1,1
-Emprendedor (a),2.0,Femenino,Entre 35 y 45 años,Casada (o),Universitaria,5,5,5,5,5,5,5,5,5,5,5,5,5,5,3,3,5,4,3
-Emprendedor (a),5.0,Femenino,Más de 55 años,Casada (o),Universitaria,4,4,5,4,5,4,4,5,3,5,5,5,3,5,3,3,3,4,3
-Emprendedor (a),11.0,Femenino,Más de 55 años,Casada (o),Especialización,4,2,3,4,4,5,4,5,4,5,3,4,4,5,4,5,3,5,5
-Emprendedor (a),1.0,Masculino,Entre 35 y 45 años,Soltera (o),Técnica,2,4,4,5,5,5,5,4,4,3,3,4,2,4,3,3,3,3,4
-Emprendedor (a),8.0,Femenino,Entre 35 y 45 años,Casada (o),Maestría,4,5,5,4,4,5,5,3,1,1,3,1,1,5,5,3,2,4,5
-Emprendedor (a),16.0,Masculino,Entre 25 y 35 años,Casada (o),Técnica,5,5,4,4,4,4,4,4,4,4,4,3,2,5,4,1,3,2,3
-Emprendedor (a),1.0,Masculino,Entre 45 y 55 años,Casada (o),Universitaria,5,5,5,5,3,5,5,4,4,2,4,1,1,5,5,5,4,4,3
-Emprendedor (a),3.0,Masculino,Entre 35 y 45 años,Soltera (o),Universitaria,4,5,5,5,5,5,5,5,5,5,5,5,2,5,3,3,4,5,4
-Emprendedor (a),8.0,Masculino,Entre 25 y 35 años,Soltera (o),Universitaria,4,4,5,5,5,5,5,5,4,3,5,2,2,5,2,3,3,5,5
-Emprendedor (a),2.0,Masculino,Más de 55 años,Soltera (o),Técnica,5,5,5,5,5,5,5,5,5,5,5,5,2,4,3,3,3,3,2
-Emprendedor (a),0.0,Femenino,Más de 55 años,Soltera (o),Especialización,4,5,5,5,5,5,5,5,4,5,4,5,4,5,5,4,4,4,4
-Emprendedor (a),4.0,Masculino,Entre 45 y 55 años,Soltera (o),Maestría,5,4,5,4,2,4,5,5,4,4,4,3,2,5,3,4,3,5,4
-Emprendedor (a),0.0,Masculino,Entre 25 y 35 años,Casada (o),Universitaria,5,5,5,4,5,5,5,5,4,4,3,3,4,5,4,5,3,4,4
-Emprendedor (a),3.0,Femenino,Entre 35 y 45 años,Casada (o),Universitaria,4,4,5,4,5,5,5,5,4,5,5,5,5,5,5,5,3,5,5
+Emprendedor (a),7.0,Masculino,Entre 35 y 45 años,Soltera (o),Especialización,3,2,3,1,3,3,4,2,3,4,3,3,4,3,2,2,2,4,4
+Emprendedor (a),2.0,Femenino,Entre 35 y 45 años,Soltera (o),Universitaria,4,3,4,4,2,5,5,2,3,1,3,1,1,1,4,2,3,4,1
+Emprendedor (a),1.0,Femenino,Entre 45 y 55 años,Soltera (o),Universitaria,3,3,4,3,5,4,4,2,2,3,4,1,3,3,3,5,2,4,3
+Emprendedor (a),7.0,Femenino,Entre 35 y 45 años,Soltera (o),Bachillerato,5,4,5,5,5,5,5,5,5,4,4,4,2,5,3,3,3,3,3
+Emprendedor (a),2.0,Masculino,Entre 45 y 55 años,Casada (o),Universitaria,5,5,5,5,5,5,5,5,5,4,4,4,2,5,4,3,3,5,4
+Ambos,2.0,Masculino,Entre 45 y 55 años,Otro,Técnica,3,5,4,4,4,5,4,4,4,2,4,2,1,5,4,3,3,3,3
+Emprendedor (a),0.0,Masculino,Entre 35 y 45 años,Casada (o),Tecnología,5,3,4,3,5,4,4,4,5,4,4,3,4,4,3,4,2,2,3
+Emprendedor (a),3.0,Femenino,Entre 35 y 45 años,Otro,Universitaria,5,5,4,5,5,5,5,4,4,4,4,5,2,4,5,3,3,3,5
+Ambos,8.0,Masculino,Entre 25 y 35 años,Casada (o),Universitaria,5,4,5,5,2,5,5,5,5,5,5,5,3,5,5,4,4,5,4
+Emprendedor (a),10.0,Femenino,Entre 25 y 35 años,Soltera (o),Especialización,5,5,5,4,5,5,5,5,3,4,3,2,3,4,5,5,4,3,3
+Emprendedor (a),9.0,Masculino,Entre 25 y 35 años,Casada (o),Técnica,5,5,4,5,4,5,5,5,4,4,4,5,5,4,5,5,5,5,5
+Ambos,2.0,Masculino,Entre 25 y 35 años,Casada (o),Universitaria,3,4,5,4,4,3,4,1,4,4,3,5,2,5,4,2,2,1,3
+Emprendedor (a),2.0,Masculino,Entre 25 y 35 años,Soltera (o),Especialización,4,5,4,4,2,5,5,4,3,3,1,2,2,5,5,3,2,1,1
+Emprendedor (a),3.0,Masculino,Entre 35 y 45 años,Otro,Tecnología,4,3,3,3,1,5,5,5,5,4,4,5,1,5,4,2,2,4,4
+Emprendedor (a),3.0,Femenino,Entre 45 y 55 años,Soltera (o),Universitaria,3,3,5,3,2,2,3,3,4,1,2,2,1,3,3,2,1,1,1
+Emprendedor (a),0.0,Femenino,Entre 45 y 55 años,Soltera (o),Especialización,2,1,3,1,5,3,3,2,1,1,3,1,4,4,1,3,1,2,1
+Emprendedor (a),1.0,Masculino,Entre 45 y 55 años,Casada (o),Universitaria,5,3,5,4,5,5,5,5,3,3,4,3,4,5,4,5,4,3,2
+Emprendedor (a),4.0,Femenino,Más de 55 años,Casada (o),Maestría,5,5,5,4,1,5,4,4,3,3,3,3,4,4,5,3,2,4,3
+Emprendedor (a),1.0,Masculino,Entre 35 y 45 años,Casada (o),Universitaria,3,3,5,3,4,5,5,5,2,2,2,2,1,5,4,3,1,3,3
+Ambos,1.0,Femenino,Más de 55 años,Casada (o),Maestría,5,5,5,4,4,5,5,3,2,2,4,1,4,2,3,3,4,2,3
+Ambos,10.0,Femenino,Entre 25 y 35 años,Soltera (o),Maestría,5,5,5,5,4,5,5,5,3,4,2,4,1,5,5,5,3,1,1
+Ambos,5.0,Masculino,Menos de 25 años,Soltera (o),Técnica,5,4,4,2,3,5,5,5,2,4,3,4,4,3,3,4,3,2,2
+Emprendedor (a),8.0,Femenino,Entre 45 y 55 años,Soltera (o),Maestría,3,5,4,1,4,3,3,2,3,1,2,1,3,3,1,1,1,1,1
+Emprendedor (a),2.0,Femenino,Entre 35 y 45 años,Casada (o),Universitaria,5,5,5,5,5,5,5,5,5,5,5,5,5,5,3,5,5,5,3
+Emprendedor (a),5.0,Femenino,Más de 55 años,Casada (o),Universitaria,4,3,5,4,5,4,5,5,3,4,4,5,4,5,4,3,4,4,3
+Emprendedor (a),11.0,Femenino,Más de 55 años,Casada (o),Especialización,4,4,4,3,3,5,4,5,4,4,2,4,4,5,5,5,3,5,5
+Emprendedor (a),1.0,Masculino,Entre 35 y 45 años,Soltera (o),Técnica,2,4,5,5,4,5,5,5,3,4,3,3,4,4,4,3,2,3,4
+Emprendedor (a),8.0,Femenino,Entre 35 y 45 años,Casada (o),Maestría,5,5,5,5,5,5,5,3,1,3,3,1,1,5,5,2,1,3,4
+Emprendedor (a),16.0,Masculino,Entre 25 y 35 años,Casada (o),Técnica,5,4,2,4,4,4,5,2,4,4,3,4,3,5,4,2,3,3,2
+Emprendedor (a),1.0,Masculino,Entre 45 y 55 años,Casada (o),Universitaria,4,5,5,5,4,5,5,4,4,4,3,2,1,5,5,5,3,4,2
+Emprendedor (a),3.0,Masculino,Entre 35 y 45 años,Soltera (o),Universitaria,4,5,5,5,5,5,5,5,5,5,4,5,4,5,4,3,5,5,5
+Emprendedor (a),8.0,Masculino,Entre 25 y 35 años,Soltera (o),Universitaria,4,5,5,4,5,5,5,5,4,3,4,2,3,5,2,3,3,5,5
+Emprendedor (a),2.0,Masculino,Más de 55 años,Soltera (o),Técnica,5,5,5,5,5,5,5,5,5,5,5,5,3,4,3,4,3,3,2
+Emprendedor (a),0.0,Femenino,Más de 55 años,Soltera (o),Especialización,4,5,5,4,5,5,5,5,4,5,4,5,4,5,5,4,4,4,5
+Emprendedor (a),4.0,Masculino,Entre 45 y 55 años,Soltera (o),Maestría,5,5,5,4,3,4,5,5,5,3,3,2,1,5,3,4,4,5,5
+Emprendedor (a),0.0,Masculino,Entre 25 y 35 años,Casada (o),Universitaria,5,5,5,4,5,5,5,5,4,3,3,3,3,5,4,5,3,4,4
+Emprendedor (a),3.0,Femenino,Entre 35 y 45 años,Casada (o),Universitaria,4,4,5,4,4,5,5,5,3,4,5,5,5,5,5,5,3,5,5
 Emprendedor (a),11.0,Masculino,Entre 35 y 45 años,Soltera (o),Maestría,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5
-Emprendedor (a),2.0,Femenino,Entre 25 y 35 años,Soltera (o),Tecnología,4,4,4,3,4,4,3,3,3,2,4,2,5,2,1,1,2,3,3
-Emprendedor (a),1.0,Masculino,Más de 55 años,Otro,Especialización,5,4,5,4,5,4,4,4,3,4,4,4,4,4,4,5,4,4,4
-Ambos,3.0,Femenino,Entre 25 y 35 años,Casada (o),Técnica,5,3,4,3,2,5,5,5,4,4,3,4,3,5,5,5,5,4,4
-Emprendedor (a),2.0,Masculino,Entre 45 y 55 años,Casada (o),Universitaria,5,5,5,5,4,5,5,5,5,5,3,5,5,5,4,5,5,5,5
-Emprendedor (a),5.0,Masculino,Entre 45 y 55 años,Soltera (o),Universitaria,5,4,5,5,3,4,4,5,5,5,2,4,3,5,5,5,4,4,4
+Emprendedor (a),2.0,Femenino,Entre 25 y 35 años,Soltera (o),Tecnología,4,3,3,3,4,3,3,3,3,3,5,2,5,3,1,2,3,4,3
+Emprendedor (a),1.0,Masculino,Más de 55 años,Otro,Especialización,5,4,5,4,5,4,4,4,3,4,4,4,4,5,4,5,5,4,4
+Ambos,3.0,Femenino,Entre 25 y 35 años,Casada (o),Técnica,5,4,4,4,3,5,5,5,3,1,3,3,1,5,5,5,5,4,4
+Emprendedor (a),2.0,Masculino,Entre 45 y 55 años,Casada (o),Universitaria,5,5,5,5,3,5,5,5,5,3,3,5,5,5,4,5,5,5,5
+Emprendedor (a),5.0,Masculino,Entre 45 y 55 años,Soltera (o),Universitaria,5,5,5,4,3,4,4,5,5,4,1,4,3,5,5,5,4,4,3
 Emprendedor (a),0.0,Femenino,Más de 55 años,Casada (o),Especialización,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5
-Emprendedor (a),3.0,Masculino,Más de 55 años,Casada (o),Especialización,5,5,5,5,5,5,4,5,4,5,3,5,3,5,4,4,4,3,3
-Emprendedor (a),5.0,Masculino,Entre 25 y 35 años,Casada (o),Especialización,5,5,4,4,4,5,5,4,4,4,4,3,1,5,3,1,2,5,4
+Emprendedor (a),3.0,Masculino,Más de 55 años,Casada (o),Especialización,5,5,5,5,5,5,4,5,4,5,3,5,4,5,4,4,4,3,2
+Emprendedor (a),5.0,Masculino,Entre 25 y 35 años,Casada (o),Especialización,5,5,4,5,3,5,5,3,5,4,4,4,1,4,3,1,2,5,4
 Ambos,2.0,Femenino,Entre 45 y 55 años,Soltera (o),Especialización,5,5,5,5,5,5,5,5,4,5,5,5,3,5,5,5,3,5,5
-Emprendedor (a),4.0,Masculino,Entre 25 y 35 años,Soltera (o),Especialización,5,3,4,4,4,5,5,5,5,5,3,3,3,5,5,5,3,5,5
-Emprendedor (a),0.0,Masculino,Entre 35 y 45 años,Casada (o),Técnica,5,5,5,4,3,4,4,4,4,3,4,3,1,4,4,3,2,4,4
-Emprendedor (a),0.0,Femenino,Entre 45 y 55 años,Soltera (o),Técnica,5,5,5,5,5,4,5,5,5,5,5,5,5,5,4,2,3,5,4
-Emprendedor (a),3.0,Femenino,Entre 45 y 55 años,Soltera (o),Especialización,1,2,1,3,3,2,3,2,3,2,1,3,4,2,3,1,2,1,4
-Emprendedor (a),1.0,Masculino,Entre 25 y 35 años,Soltera (o),Bachillerato,5,4,5,5,5,3,5,5,3,3,4,2,1,5,5,3,1,3,3
-Ambos,9.0,Masculino,Más de 55 años,Casada (o),Universitaria,5,5,5,5,5,5,5,5,5,5,5,5,3,5,5,5,5,4,2
-Emprendedor (a),2.0,Masculino,Entre 45 y 55 años,Soltera (o),Especialización,5,5,5,5,4,4,4,5,5,5,4,5,3,5,4,4,1,5,5
-Emprendedor (a),15.0,Masculino,Entre 25 y 35 años,Otro,Universitaria,4,4,4,5,4,5,5,4,3,4,5,5,4,3,3,3,5,4,1
-Emprendedor (a),5.0,Masculino,Entre 25 y 35 años,Soltera (o),Bachillerato,4,4,4,5,3,4,4,4,3,4,3,5,2,5,4,3,2,1,1
-Emprendedor (a),0.0,Masculino,Entre 25 y 35 años,Soltera (o),Universitaria,3,4,3,3,5,3,4,2,3,4,4,3,4,3,2,2,3,2,3
-Ambos,1.0,Masculino,Entre 25 y 35 años,Casada (o),Técnica,5,5,5,5,4,5,5,4,3,3,4,1,1,5,4,3,1,4,1
-Emprendedor (a),1.0,Masculino,Entre 45 y 55 años,Soltera (o),Universitaria,5,5,5,4,3,5,5,5,3,3,4,3,4,4,4,3,1,3,3
-Ambos,0.0,Masculino,Entre 35 y 45 años,Otro,Tecnología,3,3,4,3,3,4,4,2,3,2,4,1,1,4,4,2,3,4,4
-Emprendedor (a),14.0,Masculino,Entre 45 y 55 años,Otro,Maestría,5,5,5,5,4,5,4,5,5,5,4,5,4,5,4,5,2,4,4
-Emprendedor (a),1.0,Masculino,Entre 35 y 45 años,Otro,Maestría,4,5,5,5,5,5,5,4,4,5,4,3,1,5,4,2,1,2,2
+Emprendedor (a),4.0,Masculino,Entre 25 y 35 años,Soltera (o),Especialización,5,4,5,3,5,5,5,5,4,4,2,3,1,5,4,5,3,5,5
+Emprendedor (a),0.0,Masculino,Entre 35 y 45 años,Casada (o),Técnica,5,5,5,5,3,4,4,4,4,4,4,2,1,4,4,3,2,4,4
+Emprendedor (a),0.0,Femenino,Entre 45 y 55 años,Soltera (o),Técnica,5,5,5,5,5,4,4,5,5,5,5,5,5,5,4,2,3,4,5
+Emprendedor (a),3.0,Femenino,Entre 45 y 55 años,Soltera (o),Especialización,3,2,1,3,1,2,4,2,1,2,2,2,5,2,3,2,2,1,4
+Emprendedor (a),1.0,Masculino,Entre 25 y 35 años,Soltera (o),Bachillerato,5,4,5,5,5,3,4,5,5,2,4,3,1,5,4,3,1,3,4
+Ambos,9.0,Masculino,Más de 55 años,Casada (o),Universitaria,5,5,5,5,5,5,5,5,5,5,4,5,4,5,5,5,5,4,2
+Emprendedor (a),2.0,Masculino,Entre 45 y 55 años,Soltera (o),Especialización,5,5,5,5,4,4,4,5,5,5,4,5,4,5,4,4,1,5,5
+Emprendedor (a),15.0,Masculino,Entre 25 y 35 años,Otro,Universitaria,3,3,4,5,5,4,5,5,2,4,5,5,3,3,4,4,5,4,2
+Emprendedor (a),5.0,Masculino,Entre 25 y 35 años,Soltera (o),Bachillerato,4,3,4,4,3,4,4,5,3,4,3,4,3,5,5,3,2,1,1
+Emprendedor (a),0.0,Masculino,Entre 25 y 35 años,Soltera (o),Universitaria,4,3,3,2,5,3,3,3,3,4,3,3,5,1,4,2,3,3,3
+Ambos,1.0,Masculino,Entre 25 y 35 años,Casada (o),Técnica,4,5,5,5,5,4,4,5,4,4,4,2,1,5,4,3,1,3,2
+Emprendedor (a),1.0,Masculino,Entre 45 y 55 años,Soltera (o),Universitaria,5,5,4,4,4,5,4,5,3,2,5,4,1,4,3,3,2,2,3
+Ambos,0.0,Masculino,Entre 35 y 45 años,Otro,Tecnología,3,4,4,4,3,4,5,2,3,3,3,1,1,4,4,2,3,4,5
+Emprendedor (a),14.0,Masculino,Entre 45 y 55 años,Otro,Maestría,5,5,5,5,4,4,4,5,5,5,5,5,4,5,3,5,3,4,4
+Emprendedor (a),1.0,Masculino,Entre 35 y 45 años,Otro,Maestría,4,5,5,4,5,4,5,4,5,5,3,4,2,5,3,1,1,3,2
 Emprendedor (a),0.0,Masculino,Entre 25 y 35 años,Otro,Universitaria,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5
-Emprendedor (a),1.0,Femenino,Entre 25 y 35 años,Casada (o),Técnica,5,5,5,5,4,5,5,5,3,5,3,5,3,5,5,5,4,4,5
-Emprendedor (a),5.0,Masculino,Entre 45 y 55 años,Otro,Tecnología,5,5,5,5,4,5,5,5,1,2,3,3,2,5,5,5,3,4,5
-Emprendedor (a),1.0,Femenino,Entre 45 y 55 años,Soltera (o),Técnica,5,3,4,3,1,2,4,4,5,4,1,4,2,3,5,5,3,1,1
-Emprendedor (a),2.0,Femenino,Entre 35 y 45 años,Casada (o),Universitaria,4,5,5,5,2,4,4,4,3,2,1,2,2,4,4,4,4,3,3
-Emprendedor (a),5.0,Femenino,Entre 35 y 45 años,Otro,Bachillerato,4,3,2,4,2,2,3,2,3,2,2,2,1,1,2,1,2,3,2
-Emprendedor (a),4.0,Masculino,Menos de 25 años,Casada (o),Técnica,5,5,5,5,1,4,5,5,5,5,5,5,1,5,5,3,4,5,5
-Emprendedor (a),4.0,Masculino,Entre 35 y 45 años,Soltera (o),Universitaria,3,1,1,1,2,1,1,2,4,3,2,3,4,1,2,3,3,4,5
-Emprendedor (a),9.0,Femenino,Entre 25 y 35 años,Casada (o),Primaria,3,5,5,4,3,5,5,5,1,1,1,1,1,5,5,5,3,3,4
-Emprendedor (a),8.0,Femenino,Entre 35 y 45 años,Otro,Tecnología,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5
-Ambos,5.0,Femenino,Entre 35 y 45 años,Otro,Bachillerato,4,2,3,3,3,5,5,4,3,5,5,5,3,4,4,4,4,3,2
-Emprendedor (a),4.0,Masculino,Más de 55 años,Soltera (o),Universitaria,5,5,5,5,3,5,5,5,2,2,1,2,1,5,5,4,4,1,2
-Ambos,3.0,Femenino,Entre 45 y 55 años,Casada (o),Universitaria,2,2,4,3,3,4,5,4,2,1,1,1,1,3,3,1,1,1,2
-Emprendedor (a),2.0,Masculino,Entre 45 y 55 años,Soltera (o),Especialización,2,5,5,5,2,4,4,2,1,1,2,1,1,5,5,2,2,1,2
-Emprendedor (a),1.0,Masculino,Entre 35 y 45 años,Soltera (o),Universitaria,5,5,5,5,5,1,1,3,3,4,5,5,3,5,4,3,1,5,3
+Emprendedor (a),1.0,Femenino,Entre 25 y 35 años,Casada (o),Técnica,5,5,5,5,3,5,5,5,3,5,3,5,2,5,5,5,4,3,5
+Emprendedor (a),5.0,Masculino,Entre 45 y 55 años,Otro,Tecnología,5,5,5,5,4,5,5,5,2,2,3,2,2,5,5,3,2,4,4
+Emprendedor (a),1.0,Femenino,Entre 45 y 55 años,Soltera (o),Técnica,5,2,2,3,1,4,4,4,5,3,1,5,1,4,4,5,4,1,1
+Emprendedor (a),2.0,Femenino,Entre 35 y 45 años,Casada (o),Universitaria,4,5,5,5,3,4,4,4,3,2,2,2,2,4,3,4,4,2,3
+Emprendedor (a),5.0,Femenino,Entre 35 y 45 años,Otro,Bachillerato,3,2,2,4,2,3,1,2,3,1,2,4,1,1,1,2,2,3,3
+Emprendedor (a),4.0,Masculino,Menos de 25 años,Casada (o),Técnica,5,4,5,5,1,4,5,5,5,5,5,5,1,5,5,3,4,5,5
+Emprendedor (a),4.0,Masculino,Entre 35 y 45 años,Soltera (o),Universitaria,3,1,1,1,1,1,3,2,3,2,1,2,4,3,3,5,5,4,5
+Emprendedor (a),9.0,Femenino,Entre 25 y 35 años,Casada (o),Primaria,4,5,5,5,3,5,5,5,1,1,1,1,1,5,5,5,2,2,3
+Emprendedor (a),8.0,Femenino,Entre 35 y 45 años,Otro,Tecnología,5,5,5,5,5,5,5,5,5,5,5,5,4,5,5,5,5,5,4
+Ambos,5.0,Femenino,Entre 35 y 45 años,Otro,Bachillerato,4,3,3,3,4,5,5,5,3,4,4,5,1,4,5,4,5,4,3
+Emprendedor (a),4.0,Masculino,Más de 55 años,Soltera (o),Universitaria,5,5,5,5,4,5,5,4,3,2,1,3,1,5,5,3,3,1,1
+Ambos,3.0,Femenino,Entre 45 y 55 años,Casada (o),Universitaria,3,2,4,4,3,4,5,4,2,1,1,1,1,3,2,1,1,1,2
+Emprendedor (a),2.0,Masculino,Entre 45 y 55 años,Soltera (o),Especialización,3,5,4,5,3,3,4,2,2,2,2,1,1,4,4,1,1,1,2
+Emprendedor (a),1.0,Masculino,Entre 35 y 45 años,Soltera (o),Universitaria,4,4,5,5,5,2,1,3,4,5,5,5,4,5,4,3,2,5,4
 Emprendedor (a),2.0,Masculino,Entre 35 y 45 años,Casada (o),Universitaria,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5
-Emprendedor (a),4.0,Femenino,Entre 25 y 35 años,Soltera (o),Universitaria,4,5,5,5,5,4,4,5,3,3,4,5,4,5,4,2,3,1,1
-Emprendedor (a),0.0,Masculino,Entre 25 y 35 años,Soltera (o),Técnica,5,3,4,5,4,5,5,5,4,4,3,5,1,5,5,5,5,3,2
-Emprendedor (a),3.0,Femenino,Entre 45 y 55 años,Soltera (o),Tecnología,3,4,5,4,5,5,5,5,4,2,3,3,3,4,4,3,3,4,3
-Emprendedor (a),11.0,Femenino,Entre 45 y 55 años,Soltera (o),Técnica,5,5,5,5,4,4,4,4,4,4,4,4,4,5,5,3,4,4,1
-Emprendedor (a),0.0,Femenino,Entre 45 y 55 años,Soltera (o),Especialización,3,3,4,2,3,5,4,4,3,2,1,1,2,5,5,5,3,4,2
-Ambos,17.0,Femenino,Menos de 25 años,Casada (o),Universitaria,5,5,5,4,3,4,5,5,4,5,4,5,4,5,4,3,3,4,4
-Emprendedor (a),2.0,Masculino,Entre 25 y 35 años,Casada (o),Especialización,5,5,4,5,4,4,4,4,3,4,4,4,1,5,5,3,3,5,5
-Emprendedor (a),5.0,Masculino,Entre 25 y 35 años,Casada (o),Especialización,5,5,5,5,4,1,3,4,5,5,5,5,4,4,3,3,5,3,3
-Emprendedor (a),2.0,Masculino,Entre 25 y 35 años,Soltera (o),Técnica,5,5,5,4,4,4,5,5,2,3,4,1,2,5,4,3,3,2,3
-Emprendedor (a),3.0,Femenino,Entre 25 y 35 años,Soltera (o),Bachillerato,5,4,5,5,3,5,5,5,3,4,3,3,2,5,3,4,3,4,5
-Emprendedor (a),7.0,Femenino,Más de 55 años,Soltera (o),Especialización,5,4,4,5,4,5,4,5,4,4,2,5,5,5,5,5,5,5,5
-Emprendedor (a),7.0,Femenino,Entre 25 y 35 años,Soltera (o),Técnica,4,5,5,4,4,4,5,3,2,1,2,1,2,3,2,2,2,2,4
-Emprendedor (a),1.0,Masculino,Entre 25 y 35 años,Casada (o),Bachillerato,5,5,5,5,5,5,5,5,4,5,4,5,1,4,2,1,2,3,2
-Emprendedor (a),5.0,Femenino,Entre 35 y 45 años,Otro,Especialización,4,3,4,4,4,4,4,4,4,5,2,4,3,3,3,2,3,2,3
-Emprendedor (a),9.0,Masculino,Entre 45 y 55 años,Otro,Universitaria,5,5,4,3,4,5,5,5,3,3,4,4,3,4,3,1,3,4,4
-Ambos,1.0,Masculino,Entre 45 y 55 años,Casada (o),Técnica,4,4,4,3,3,3,4,2,1,1,2,1,1,4,3,1,1,1,1
-Emprendedor (a),1.0,Femenino,Más de 55 años,Soltera (o),Técnica,5,5,5,5,5,5,5,5,4,4,5,5,4,5,4,3,4,4,4
-Emprendedor (a),7.0,Masculino,Entre 25 y 35 años,Soltera (o),Técnica,5,5,5,5,5,5,5,5,5,5,5,5,4,5,5,3,3,4,4
-Emprendedor (a),0.0,Femenino,Entre 35 y 45 años,Casada (o),Bachillerato,5,5,5,5,4,4,4,5,5,5,5,5,5,5,5,5,5,4,5
-Emprendedor (a),6.0,Femenino,Entre 45 y 55 años,Otro,Bachillerato,5,5,5,5,5,5,4,5,4,4,3,5,5,5,4,4,3,1,2
-Emprendedor (a),1.0,Femenino,Entre 25 y 35 años,Casada (o),Universitaria,4,2,1,4,4,4,4,3,5,5,4,4,2,5,4,3,5,5,4
-Ambos,16.0,Masculino,Entre 35 y 45 años,Soltera (o),Tecnología,5,5,5,5,5,2,4,5,5,5,5,4,3,4,3,3,4,3,2
-Emprendedor (a),0.0,Masculino,Entre 35 y 45 años,Soltera (o),Universitaria,4,5,4,5,5,4,4,5,5,5,4,5,3,5,4,3,2,3,3
-Emprendedor (a),8.0,Femenino,Entre 35 y 45 años,Soltera (o),Universitaria,5,5,5,5,4,5,5,5,2,2,3,2,3,5,5,4,4,4,4
-Ambos,5.0,Femenino,Entre 35 y 45 años,Casada (o),Universitaria,5,5,5,5,5,5,5,5,3,4,4,4,4,5,5,5,4,5,5
-Emprendedor (a),9.0,Masculino,Entre 25 y 35 años,Soltera (o),Tecnología,4,4,4,1,3,4,4,2,4,4,2,2,3,4,4,4,2,4,4
-Emprendedor (a),2.0,Masculino,Entre 35 y 45 años,Soltera (o),Maestría,5,5,5,5,3,4,4,4,4,5,5,5,3,3,3,2,3,2,2
-Emprendedor (a),17.0,Femenino,Entre 35 y 45 años,Casada (o),Maestría,5,5,5,5,4,5,5,5,4,5,4,5,4,5,4,3,3,3,4
-Ambos,2.0,Masculino,Entre 35 y 45 años,Soltera (o),Universitaria,5,1,1,2,1,5,5,5,3,3,2,5,2,5,5,5,3,3,4
-Emprendedor (a),2.0,Femenino,Entre 25 y 35 años,Casada (o),Técnica,5,4,5,5,3,4,4,5,5,5,4,5,4,5,4,4,3,4,2
-Emprendedor (a),1.0,Masculino,Más de 55 años,Casada (o),Doctorado,3,1,1,3,2,3,4,3,3,1,2,1,1,2,3,3,4,3,4
-Emprendedor (a),14.0,Femenino,Entre 25 y 35 años,Casada (o),Técnica,5,5,5,5,5,4,5,5,4,5,5,5,4,5,5,5,5,3,2
-Emprendedor (a),3.0,Masculino,Entre 35 y 45 años,Casada (o),Técnica,4,4,4,3,1,2,4,2,3,3,2,1,1,4,3,1,1,3,4
-Emprendedor (a),3.0,Femenino,Entre 45 y 55 años,Casada (o),Universitaria,5,4,5,5,5,5,5,5,4,5,4,5,5,5,5,5,5,4,4
+Emprendedor (a),4.0,Femenino,Entre 25 y 35 años,Soltera (o),Universitaria,4,3,5,5,5,4,4,5,3,4,4,4,5,5,4,2,3,1,2
+Emprendedor (a),0.0,Masculino,Entre 25 y 35 años,Soltera (o),Técnica,4,4,5,5,4,5,5,5,4,5,2,4,1,5,5,5,4,3,2
+Emprendedor (a),3.0,Femenino,Entre 45 y 55 años,Soltera (o),Tecnología,3,4,4,4,5,5,5,4,4,2,3,3,3,5,3,4,3,3,4
+Emprendedor (a),11.0,Femenino,Entre 45 y 55 años,Soltera (o),Técnica,4,5,5,5,4,5,4,4,4,4,5,5,3,5,4,4,4,2,2
+Emprendedor (a),0.0,Femenino,Entre 45 y 55 años,Soltera (o),Especialización,3,4,4,2,3,5,4,4,2,1,1,1,1,5,5,4,3,4,3
+Ambos,17.0,Femenino,Menos de 25 años,Casada (o),Universitaria,5,5,5,4,3,5,5,5,5,4,5,5,3,5,5,3,4,4,3
+Emprendedor (a),2.0,Masculino,Entre 25 y 35 años,Casada (o),Especialización,5,5,5,5,3,5,4,3,3,3,4,5,1,5,5,3,3,5,5
+Emprendedor (a),5.0,Masculino,Entre 25 y 35 años,Casada (o),Especialización,5,4,5,5,4,2,4,3,5,5,5,5,5,4,4,3,5,3,3
+Emprendedor (a),2.0,Masculino,Entre 25 y 35 años,Soltera (o),Técnica,5,5,5,4,5,4,5,5,4,3,4,1,2,5,4,3,3,2,3
+Emprendedor (a),3.0,Femenino,Entre 25 y 35 años,Soltera (o),Bachillerato,5,5,5,5,4,4,5,5,4,3,2,3,2,5,3,4,3,5,4
+Emprendedor (a),7.0,Femenino,Más de 55 años,Soltera (o),Especialización,5,5,5,5,3,5,4,5,3,4,2,5,4,5,5,5,5,4,5
+Emprendedor (a),7.0,Femenino,Entre 25 y 35 años,Soltera (o),Técnica,4,5,5,4,4,4,4,2,2,2,3,1,3,3,1,2,2,2,4
+Emprendedor (a),1.0,Masculino,Entre 25 y 35 años,Casada (o),Bachillerato,5,3,5,5,5,5,5,5,4,5,4,5,2,4,1,1,3,3,3
+Emprendedor (a),5.0,Femenino,Entre 35 y 45 años,Otro,Especialización,4,3,4,3,3,4,4,4,4,4,2,4,4,3,3,3,3,2,4
+Emprendedor (a),9.0,Masculino,Entre 45 y 55 años,Otro,Universitaria,5,3,5,4,3,5,5,4,4,2,5,4,3,4,3,2,3,4,4
+Ambos,1.0,Masculino,Entre 45 y 55 años,Casada (o),Técnica,4,4,4,3,4,3,4,2,2,1,2,1,1,4,3,1,1,1,1
+Emprendedor (a),1.0,Femenino,Más de 55 años,Soltera (o),Técnica,5,5,5,5,5,5,5,5,4,5,5,4,4,5,4,4,4,4,4
+Emprendedor (a),7.0,Masculino,Entre 25 y 35 años,Soltera (o),Técnica,5,5,4,5,4,5,5,5,5,5,5,5,3,5,5,3,3,3,4
+Emprendedor (a),0.0,Femenino,Entre 35 y 45 años,Casada (o),Bachillerato,5,5,5,5,5,4,5,5,5,5,5,5,5,5,5,5,5,4,4
+Emprendedor (a),6.0,Femenino,Entre 45 y 55 años,Otro,Bachillerato,5,5,5,5,5,5,4,5,4,5,4,5,5,5,4,4,3,1,2
+Emprendedor (a),1.0,Femenino,Entre 25 y 35 años,Casada (o),Universitaria,4,3,1,4,4,5,4,3,4,4,3,5,1,5,4,4,5,5,4
+Ambos,16.0,Masculino,Entre 35 y 45 años,Soltera (o),Tecnología,4,5,5,5,5,3,3,4,5,5,5,5,4,5,3,3,4,4,2
+Emprendedor (a),0.0,Masculino,Entre 35 y 45 años,Soltera (o),Universitaria,4,4,5,4,4,5,4,5,5,5,4,5,4,5,5,3,2,3,2
+Emprendedor (a),8.0,Femenino,Entre 35 y 45 años,Soltera (o),Universitaria,5,5,5,5,5,5,5,5,2,2,3,3,1,5,5,4,3,4,3
+Ambos,5.0,Femenino,Entre 35 y 45 años,Casada (o),Universitaria,5,5,5,5,5,5,5,4,3,3,5,5,4,5,4,5,4,4,5
+Emprendedor (a),9.0,Masculino,Entre 25 y 35 años,Soltera (o),Tecnología,4,4,4,1,3,5,3,2,3,3,2,3,3,4,4,4,3,4,4
+Emprendedor (a),2.0,Masculino,Entre 35 y 45 años,Soltera (o),Maestría,4,4,5,5,3,3,5,4,4,5,5,5,2,3,3,3,4,2,3
+Emprendedor (a),17.0,Femenino,Entre 35 y 45 años,Casada (o),Maestría,5,5,5,5,4,5,5,5,4,5,4,5,3,5,4,3,3,4,3
+Ambos,2.0,Masculino,Entre 35 y 45 años,Soltera (o),Universitaria,5,1,4,3,1,5,5,5,1,3,1,2,1,5,5,5,3,4,4
+Emprendedor (a),2.0,Femenino,Entre 25 y 35 años,Casada (o),Técnica,5,5,4,4,2,5,3,5,5,5,4,5,4,5,4,4,3,3,3
+Emprendedor (a),1.0,Masculino,Más de 55 años,Casada (o),Doctorado,3,1,4,4,1,4,5,2,3,1,1,1,1,3,4,3,3,4,4
+Emprendedor (a),14.0,Femenino,Entre 25 y 35 años,Casada (o),Técnica,5,5,5,5,5,4,5,5,5,5,5,5,3,5,5,5,5,3,3
+Emprendedor (a),3.0,Masculino,Entre 35 y 45 años,Casada (o),Técnica,5,5,4,2,1,2,4,2,3,3,3,2,1,4,1,1,1,3,4
+Emprendedor (a),3.0,Femenino,Entre 45 y 55 años,Casada (o),Universitaria,5,5,5,5,5,5,5,5,4,5,4,5,4,5,5,5,5,4,5
 Emprendedor (a),15.0,Masculino,Más de 55 años,Soltera (o),Especialización,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5
-Emprendedor (a),4.0,Femenino,Entre 35 y 45 años,Soltera (o),Tecnología,5,2,4,3,4,5,5,5,2,1,2,1,2,5,4,3,3,3,4
-Emprendedor (a),9.0,Femenino,Entre 45 y 55 años,Casada (o),Tecnología,5,2,1,3,4,4,4,4,4,4,5,4,1,5,4,2,3,5,3
+Emprendedor (a),4.0,Femenino,Entre 35 y 45 años,Soltera (o),Tecnología,5,3,4,4,4,5,5,5,3,1,2,1,1,5,4,3,3,3,4
+Emprendedor (a),9.0,Femenino,Entre 45 y 55 años,Casada (o),Tecnología,4,1,3,4,4,4,4,4,4,4,5,3,1,5,5,3,3,5,4
 Emprendedor (a),2.0,Femenino,Entre 25 y 35 años,Casada (o),Técnica,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5
-Ambos,3.0,Femenino,Menos de 25 años,Soltera (o),Bachillerato,5,5,5,5,5,5,5,5,5,5,5,5,5,5,3,3,2,4,4
-Ambos,2.0,Femenino,Entre 45 y 55 años,Soltera (o),Técnica,5,5,5,4,4,4,4,4,3,4,4,5,3,5,5,5,4,3,4
-Ambos,16.0,Femenino,Entre 25 y 35 años,Casada (o),Técnica,5,5,5,4,1,5,5,5,2,2,2,2,1,5,5,3,2,3,3
-Emprendedor (a),0.0,Femenino,Entre 25 y 35 años,Soltera (o),Primaria,4,4,4,5,1,5,5,3,4,5,3,5,3,5,5,5,3,2,3
-Emprendedor (a),0.0,Masculino,Entre 45 y 55 años,Casada (o),Universitaria,5,5,5,5,5,5,4,5,5,3,4,4,2,5,4,5,1,2,2
-Ambos,3.0,Masculino,Entre 45 y 55 años,Soltera (o),Universitaria,4,3,5,5,3,5,5,5,5,4,3,5,3,4,5,5,5,5,4
-Emprendedor (a),0.0,Masculino,Más de 55 años,Soltera (o),Técnica,5,5,5,5,2,5,5,5,4,3,2,2,4,5,5,5,4,4,5
+Ambos,3.0,Femenino,Menos de 25 años,Soltera (o),Bachillerato,5,5,5,5,5,5,5,5,5,5,5,5,5,5,3,2,3,4,4
+Ambos,2.0,Femenino,Entre 45 y 55 años,Soltera (o),Técnica,5,5,5,5,4,5,5,4,3,4,4,5,2,5,5,5,4,3,3
+Ambos,16.0,Femenino,Entre 25 y 35 años,Casada (o),Técnica,5,5,5,5,1,5,5,5,3,2,3,3,1,5,5,2,2,2,2
+Emprendedor (a),0.0,Femenino,Entre 25 y 35 años,Soltera (o),Primaria,4,4,4,4,1,5,5,5,2,5,3,5,2,5,5,5,3,2,4
+Emprendedor (a),0.0,Masculino,Entre 45 y 55 años,Casada (o),Universitaria,5,5,5,5,4,5,4,5,5,4,4,4,3,4,4,5,1,3,1
+Ambos,3.0,Masculino,Entre 45 y 55 años,Soltera (o),Universitaria,3,5,5,5,3,5,5,5,5,3,3,4,3,5,5,5,4,4,5
+Emprendedor (a),0.0,Masculino,Más de 55 años,Soltera (o),Técnica,5,5,5,5,2,5,5,5,3,2,3,2,3,5,5,5,3,4,4

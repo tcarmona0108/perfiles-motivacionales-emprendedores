@@ -23,16 +23,16 @@ puedan correr sin exponer datos personales.
 ## Fidelidad (agregados)
 | Métrica | Valor |
 |---|---|
-| Diferencia máxima en proporciones de respuesta por ítem | 0.073 |
-| Diferencia media entre policóricas (real vs sintético) | 0.072 |
-| Diferencia máxima entre correlaciones policóricas | 0.252 |
+| Diferencia máxima en proporciones de respuesta por ítem | 0.065 |
+| Diferencia media entre policóricas (real vs sintético) | 0.068 |
+| Diferencia máxima entre correlaciones policóricas | 0.247 |
 
 ## Privacidad
 | Métrica | Valor |
 |---|---|
 | Filas sintéticas (no planas) idénticas a una real | 0 |
 | Hamming mediana al registro real más cercano (de 19) | 7.0 |
-| Distancia de Hamming mínima | 2 |
+| Distancia de Hamming mínima | 1 |
 
 Las variables de contexto se muestrean de forma independiente de los ítems, así
 que ni siquiera una fila sintética parecida a una real conserva su demografía.
