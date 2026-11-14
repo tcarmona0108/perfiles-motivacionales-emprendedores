@@ -18,15 +18,10 @@ Ejecutar en local::
 
 from __future__ import annotations
 
-import json
-from pathlib import Path
-
 import plotly.graph_objects as go
 import streamlit as st
 
 import logica
-
-ENLACES = json.loads((Path(__file__).parent / "enlaces.json").read_text(encoding="utf-8"))
 
 # Paleta validada (la misma del reporte): azul = tú, naranja = tu perfil, gris = muestra.
 AZUL, NARANJA, GRIS = "#2a78d6", "#eb6834", "#8c8b85"
@@ -133,7 +128,8 @@ def pestana_perfil(modelo: dict) -> None:
 
 
 def pestana_sobre(modelo: dict) -> None:
-    c = modelo["creditos"]
+    sitio = logica.cargar_sitio()
+    c, enlaces_cfg = sitio["creditos"], sitio["enlaces"]
     st.markdown(
         f"""
 ### Sobre el proyecto
@@ -163,8 +159,8 @@ casos (F1-macro {modelo["f1_macro_cv"]:.2f}; una regla trivial obtiene
     enlaces = [
         (t, u)
         for t, u in (
-            ("Reporte técnico", ENLACES.get("reporte")),
-            ("Repositorio (código)", ENLACES.get("repositorio")),
+            ("Reporte técnico", enlaces_cfg.get("reporte")),
+            ("Repositorio (código)", enlaces_cfg.get("repositorio")),
         )
         if u
     ]

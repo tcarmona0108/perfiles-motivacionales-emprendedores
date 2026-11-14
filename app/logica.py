@@ -55,6 +55,18 @@ def cargar_modelo(ruta: Path = RUTA_MODELO) -> dict:
     return m
 
 
+def cargar_sitio(ruta: Path = RAIZ / "config.yaml") -> dict:
+    """Créditos y enlaces desde ``config.yaml``: la misma fuente que usa el reporte.
+
+    Así un cambio en los créditos se refleja en el reporte y en la demo sin
+    reentrenar ni volver a exportar el modelo.
+    """
+    import yaml
+
+    cfg = yaml.safe_load(Path(ruta).read_text(encoding="utf-8"))
+    return {"creditos": cfg["creditos"], "enlaces": cfg.get("enlaces", {})}
+
+
 def _validar(modelo: dict, respuestas: dict[str, int]) -> np.ndarray:
     faltan = [i for i in modelo["items"] if i not in respuestas]
     if faltan:

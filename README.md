@@ -2,7 +2,7 @@
 
 [![CI](https://github.com/tcarmona0108/perfiles-motivacionales-emprendedores/actions/workflows/ci.yml/badge.svg)](https://github.com/tcarmona0108/perfiles-motivacionales-emprendedores/actions/workflows/ci.yml)
 
-**[📄 Reporte técnico](https://tcarmona0108.github.io/perfiles-motivacionales-emprendedores/)** · **🧭 Demo "Descubre tu perfil emprendedor"** *(enlace pendiente de despliegue)* · **[Diagnóstico del trabajo original](docs/diagnostico.md)**
+**[📄 Reporte técnico](https://tcarmona0108.github.io/perfiles-motivacionales-emprendedores/)** · **[🧭 Demo "Descubre tu perfil emprendedor"](https://perfiles-motivacionales-emprendedores-ghv2zpyfalwitmfntdbmhh.streamlit.app/)** · **[Diagnóstico del trabajo original](docs/diagnostico.md)**
 
 ![Pipeline del análisis](docs/img/pipeline.svg)
 
@@ -105,7 +105,7 @@ uv run emprende all
 
 ## Créditos
 
-- **Investigación de origen y datos:** [Pendiente: nombre de la docente, afiliación y título de la investigación].
+- **Investigación de origen y datos:** Profesora Flor Angela Marulanda.
 - **Análisis original (v1):** apoyo estadístico a la investigación ([`legacy/`](legacy/)).
 - **Versión 2 (análisis reproducible, reporte y demo):** Tomás Carmona, Maestría en Analítica,
   Universidad Nacional de Colombia.

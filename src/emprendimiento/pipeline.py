@@ -437,7 +437,7 @@ def paso_modelo(cfg: Config, fuente: Fuente) -> None:
                     cfg,
                     fuente,
                     "modelo_app",
-                    {**meta, "parametros": parametros, "creditos": cfg["creditos"]},
+                    {**meta, "parametros": parametros},
                 )
         resumen_global[s] = {
             "modelo": elegido,

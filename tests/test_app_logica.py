@@ -70,3 +70,12 @@ def test_modelo_publicado_es_valido():
     assert len(texto) < 20_000  # solo parámetros y agregados
     r = logica.evaluar(m, dict.fromkeys(m["items"], 3))
     assert r.segmento in m["parametros"]["clases"]
+
+
+def test_creditos_y_enlaces_desde_config():
+    """La demo y el reporte leen créditos y enlaces del mismo config.yaml."""
+    sitio = logica.cargar_sitio()
+    assert sitio["creditos"]["investigacion_origen"]
+    assert "Pendiente" not in sitio["creditos"]["investigacion_origen"]
+    assert all(u.startswith("https://") for u in sitio["enlaces"].values())
+    assert "creditos" not in logica.cargar_modelo()  # el modelo ya no duplica créditos

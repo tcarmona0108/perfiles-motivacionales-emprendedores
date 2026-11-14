@@ -7,11 +7,15 @@
 # para que cualquier número del reporte se pueda regenerar exacto.
 semilla: 20241021
 
-# Créditos que muestran el reporte y la demo. PENDIENTE: confirmar con la
-# docente cómo quiere ser citada (nombre, afiliación, título de la investigación).
+# Créditos y enlaces que muestran el reporte y la demo (única fuente: ambos leen este archivo).
 creditos:
   autor_v2: "Tomás Carmona (Maestría en Analítica, Universidad Nacional de Colombia)"
-  investigacion_origen: "[Pendiente: nombre de la docente, afiliación y título de la investigación]"
+  investigacion_origen: "Profesora Flor Angela Marulanda"
+
+enlaces:
+  reporte: https://tcarmona0108.github.io/perfiles-motivacionales-emprendedores/
+  repositorio: https://github.com/tcarmona0108/perfiles-motivacionales-emprendedores
+  demo: https://perfiles-motivacionales-emprendedores-ghv2zpyfalwitmfntdbmhh.streamlit.app/
 
 datos:
   # Fuente por defecto: "sintetico" para que cualquiera que clone el repo pueda

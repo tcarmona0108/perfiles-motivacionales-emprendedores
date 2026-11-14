@@ -101,6 +101,7 @@ gen_forma = sesgo_forma.set_index("atributo").loc["genero"]
 edu_forma = sesgo_forma.set_index("atributo").loc["nivel_educativo_grupo"]
 genero_forma = leer("sesgo_forma_genero", index_col=0)
 seg_innov = [k for k, v in nombres_seg["forma"].items() if "Oportunidad" in v][0]
+enlace_demo = Markdown(f"[demo interactiva]({CFG['enlaces']['demo']})")
 hombres = genero_forma.loc["Masculino"].str.rstrip("%").astype(float)
 otros_h = hombres.drop(seg_innov)
 rango_otros_h = f"{otros_h.min():.0f}–{otros_h.max():.0f} %"
@@ -157,7 +158,7 @@ El trabajo original se conserva en `legacy/` para comparar el antes y el despué
 - **Las personas no se dividen en "tipos" claros.** Se ordenan en un continuo de *cuánto* les motiva emprender. Para comunicar ese continuo se usan **dos perfiles**: *motivación moderada* (`{python} tam[0]` personas) y *motivación alta* (`{python} tam[1]`).
 - El formulario corto ubica a una persona en el perfil correcto **`{python} pct(100 * acc_form)` de las veces**.
 
-**Cómo usarlo.** Como **punto de partida para una conversación o una mentoría**, no como decisión de inversión. Los perfiles describen motivaciones declaradas, no predicen éxito: los datos no incluyen ninguna medida de resultado (ventas, supervivencia del negocio, financiación obtenida).
+**Cómo usarlo.** Como **punto de partida para una conversación o una mentoría**, no como decisión de inversión. Los perfiles describen motivaciones declaradas, no predicen éxito: los datos no incluyen ninguna medida de resultado (ventas, supervivencia del negocio, financiación obtenida). El formulario de 8 preguntas se puede probar en la `{python} enlace_demo`.
 
 :::
 
