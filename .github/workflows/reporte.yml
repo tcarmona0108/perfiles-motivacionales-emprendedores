@@ -1,0 +1,54 @@
+name: Publicar reporte
+
+# Publica el reporte en GitHub Pages solo desde main (lo aprobado), o a mano.
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+# Un solo despliegue a la vez; no se cancela uno en curso.
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  construir:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+
+      - uses: astral-sh/setup-uv@v10
+        with:
+          enable-cache: true
+
+      - name: Instalar dependencias exactas
+        run: uv sync --locked
+
+      - uses: quarto-dev/quarto-actions/setup@v2
+        with:
+          version: 1.11.9
+
+      # Renderiza con results/real/: resultados AGREGADOS versionados.
+      # Los datos crudos nunca están en GitHub; aquí no se recalcula nada.
+      - name: Renderizar reporte
+        run: uv run emprende reporte --fuente real
+
+      - uses: actions/upload-pages-artifact@v5
+        with:
+          path: reports/_site
+
+  desplegar:
+    needs: construir
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.despliegue.outputs.page_url }}
+    steps:
+      - id: despliegue
+        uses: actions/deploy-pages@v5

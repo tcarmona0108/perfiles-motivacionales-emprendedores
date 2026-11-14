@@ -1,0 +1,25 @@
+project:
+  type: default
+  output-dir: _site
+
+lang: es
+
+format:
+  html:
+    theme: cosmo
+    toc: true
+    toc-location: left
+    toc-depth: 2
+    toc-title: Contenido
+    number-sections: true
+    code-fold: true
+    code-summary: "Ver código"
+    code-tools: false
+    embed-resources: true   # un solo HTML autocontenido: fácil de publicar y compartir
+    fig-align: center
+    smooth-scroll: true
+    css: estilo.css
+
+execute:
+  echo: true
+  warning: false

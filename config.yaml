@@ -7,6 +7,12 @@
 # para que cualquier número del reporte se pueda regenerar exacto.
 semilla: 20241021
 
+# Créditos que muestran el reporte y la demo. PENDIENTE: confirmar con la
+# docente cómo quiere ser citada (nombre, afiliación, título de la investigación).
+creditos:
+  autor_v2: "Tomás Carmona (Maestría en Analítica, Universidad Nacional de Colombia)"
+  investigacion_origen: "[Pendiente: nombre de la docente, afiliación y título de la investigación]"
+
 datos:
   # Fuente por defecto: "sintetico" para que cualquiera que clone el repo pueda
   # correr el pipeline. Con los datos reales en local: --fuente real

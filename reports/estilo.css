@@ -1,0 +1,9 @@
+/* Ajustes mínimos sobre el tema cosmo: tipografía legible y avisos visibles. */
+body { font-size: 1.02rem; line-height: 1.6; }
+h2 { margin-top: 2.2rem; border-bottom: 1px solid #e4e3df; padding-bottom: .3rem; }
+table { font-size: .92rem; }
+.resumen-ejecutivo { background: #f4f7fb; border-left: 4px solid #2a78d6; padding: 1rem 1.25rem; border-radius: 4px; }
+.aviso-sintetico { background: #fff4e5; border-left: 4px solid #eb6834; padding: .75rem 1rem; border-radius: 4px; }
+.cifra { font-size: 1.6rem; font-weight: 700; color: #1c5cab; display: block; line-height: 1.2; }
+.cifras { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: .75rem; margin: 1rem 0; }
+.cifras > div { background: #fcfcfb; border: 1px solid #e4e3df; border-radius: 6px; padding: .6rem .8rem; font-size: .9rem; }

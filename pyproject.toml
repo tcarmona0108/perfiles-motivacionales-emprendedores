@@ -28,6 +28,18 @@ dev = [
     "pytest>=8.3",
     "ruff>=0.8",
 ]
+# Lo que Quarto necesita para ejecutar las celdas de Python del reporte.
+# Quarto (el binario) no es un paquete de Python: ver README.
+reporte = [
+    "ipykernel>=6.29",
+    "nbclient>=0.10",
+    "nbformat>=5.10",
+    "jupyter-core>=5.7",
+    "tabulate>=0.9",  # tablas en markdown desde pandas
+]
+
+[tool.uv]
+default-groups = ["dev", "reporte"]
 
 [build-system]
 requires = ["hatchling>=1.25"]

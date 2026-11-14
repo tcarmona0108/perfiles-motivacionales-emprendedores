@@ -1,0 +1,417 @@
+---
+title: "Perfiles motivacionales de emprendedores"
+subtitle: "Psicometría, cuestionario corto y segmentación reproducible"
+date: last-modified
+date-format: "D [de] MMMM, YYYY"
+---
+
+```{python}
+#| include: false
+# La fuente llega por variable de entorno (la fija `emprende reporte --fuente ...`).
+# Se evita `quarto render -P`, que exigiría instalar papermill.
+import os
+
+fuente = os.environ.get("EMPRENDE_FUENTE", "real")
+```
+
+```{python}
+#| label: preparacion
+#| include: false
+# Todo el reporte lee resultados ya calculados por `emprende all` (results/<fuente>/).
+# Aquí no se recalcula nada: así el reporte muestra exactamente lo que generó el pipeline.
+import json
+from pathlib import Path
+
+import pandas as pd
+import yaml
+from IPython.display import Image, Markdown, display
+
+RAIZ = Path("..").resolve()
+RES = RAIZ / "results" / fuente
+TAB, FIG = RES / "tablas", RES / "figuras"
+CFG = yaml.safe_load((RAIZ / "config.yaml").read_text(encoding="utf-8"))
+
+
+def leer(nombre, **kw):
+    return pd.read_csv(TAB / f"{nombre}.csv", **kw)
+
+
+def leer_json(nombre):
+    return json.loads((TAB / f"{nombre}.json").read_text(encoding="utf-8"))
+
+
+def tabla(df, decimales=2, index=False):
+    """Tabla markdown con formato uniforme (Quarto le aplica el estilo del tema).
+
+    El nombre del índice se borra (los encabezados ya lo explican) y los vacíos se
+    muestran como "—" en lugar de "nan".
+    """
+    df = df.copy()
+    df.index.name = None
+    for c in df.columns:  # columnas sin decimales reales (p. ej. número de ítems) como enteros
+        if pd.api.types.is_float_dtype(df[c]) and (df[c].dropna() % 1 == 0).all():
+            df[c] = df[c].astype("Int64")
+    df = df.astype(object).where(df.notna(), None)  # tabulate muestra None como "—"
+    return Markdown(
+        df.to_markdown(index=index, floatfmt=f".{decimales}f", missingval="—")
+    )
+
+
+def figura(nombre):
+    return Image(filename=str(FIG / f"{nombre}.png"))
+
+
+def pct(x):
+    return f"{x:.0f} %"
+
+
+muestra = leer("resumen_muestra", index_col=0)["valor"]
+desc = leer("descriptivos_items", index_col=0)
+ps = leer_json("psicometria")
+conf = leer("confiabilidad", index_col=0)
+estab = leer("estabilidad_factores", index_col=0)
+alternativas = leer("alternativas_n_factores", index_col=0)
+asig = leer("asignacion_items", index_col=0)
+fc = leer_json("formulario_corto")
+comp = leer("corto_vs_largo", index_col=0)
+sg = leer_json("segmentacion")
+nombres_seg = leer_json("nombres_segmentos")
+perf = leer("perfiles_factores", index_col=0)
+perf_forma = leer("perfiles_forma", index_col=0)
+md = leer_json("modelo")
+modelos = leer("modelos_factores", index_col=0)
+sesgo_nivel = leer("sesgo_factores")
+sesgo_forma = leer("sesgo_forma")
+val = leer("validacion_externa_factores")
+val_forma = leer("validacion_externa_forma")
+
+F = ps["nombres_factores"]
+crit = ps["n_factores_por_criterio"]
+n_total, n_planas, n_analisis = (int(muestra[k]) for k in ("n_total", "n_respuesta_plana", "n_analisis"))
+n_techo = int((desc["pct_5"] > 50).sum())
+m = ps["n_factores_elegido"]
+seg = sg["factores"]
+nula = seg["prueba_sin_grupos"]
+items_corto = [i for its in fc["items_por_factor"].values() for i in its]
+f1_form = md["factores"]["f1_macro"]
+f1_base = md["factores"]["f1_base"]
+acc_form = md["factores"]["accuracy"]
+tam = seg["tamanos"]
+gen_forma = sesgo_forma.set_index("atributo").loc["genero"]
+edu_forma = sesgo_forma.set_index("atributo").loc["nivel_educativo_grupo"]
+genero_forma = leer("sesgo_forma_genero", index_col=0)
+seg_innov = [k for k, v in nombres_seg["forma"].items() if "Oportunidad" in v][0]
+hombres = genero_forma.loc["Masculino"].str.rstrip("%").astype(float)
+otros_h = hombres.drop(seg_innov)
+rango_otros_h = f"{otros_h.min():.0f}–{otros_h.max():.0f} %"
+r_resto = comp["r_corto_resto"].dropna()
+rango_resto = f"{r_resto.min():.2f}–{r_resto.max():.2f}"
+k_corto = CFG["reduccion"]["items_por_factor"]
+r_k_min = comp.loc[comp["items_corto"] >= k_corto, "r_corto_puntaje_factorial"].min()
+aut_moderada = perf.loc[1, f"media_{F[1]}"]
+```
+
+```{python}
+#| output: asis
+#| echo: false
+if fuente != "real":
+    print(
+        '::: {.aviso-sintetico}\n**Reporte generado con datos SINTÉTICOS.** Los números no son '
+        "los de la investigación; solo demuestran que el pipeline corre de punta a punta.\n:::\n"
+    )
+```
+
+::: {.callout-note appearance="minimal"}
+**Créditos.** Investigación de origen: `{python} CFG["creditos"]["investigacion_origen"]`.
+Versión 2 (análisis reproducible): `{python} CFG["creditos"]["autor_v2"]`.
+El trabajo original se conserva en `legacy/` para comparar el antes y el después.
+:::
+
+# Resumen ejecutivo {.unnumbered}
+
+::: {.resumen-ejecutivo}
+
+**El problema.** Una investigación aplicó un cuestionario de 19 preguntas sobre los motivos para emprender. La idea era usarlo para estimar el perfil emprendedor de una persona y apoyar la decisión de invertir en ella. No existe una etiqueta de quién "es" emprendedor exitoso, así que el análisis es exploratorio.
+
+**Qué se hizo.** Se analizaron las respuestas de `{python} n_total` emprendedores para: (1) descubrir qué grandes motivaciones mide el cuestionario, (2) ver cuántas preguntas bastan, (3) buscar grupos de personas con perfiles parecidos y (4) construir un formulario corto que ubique a una persona nueva.
+
+::: {.cifras}
+::: {}
+[`{python} m`]{.cifra} grandes motivaciones
+:::
+::: {}
+[`{python} fc["n_items"]`]{.cifra} preguntas bastan (de 19)
+:::
+::: {}
+[`{python} len(tam)`]{.cifra} perfiles descriptivos
+:::
+::: {}
+[`{python} pct(100 * acc_form)`]{.cifra} de acierto del formulario corto
+:::
+:::
+
+**Qué se encontró.**
+
+- El cuestionario mide **`{python} m` motivaciones**: *`{python} F[0]`* (financiación, apoyos públicos, recursos propios y familiares), *`{python} F[1]`* (independencia, flexibilidad, aplicar lo que uno sabe) y *`{python} F[2]`* (detectar una necesidad, crear algo nuevo). La tercera es la menos sólida.
+- **`{python} fc["n_items"]` preguntas** dan prácticamente la misma información que las 19: el puntaje total coincide en un `{python} f"{fc['r_total_corto_largo']:.2f}"` (correlación; 1 sería idéntico).
+- **Las personas no se dividen en "tipos" claros.** Se ordenan en un continuo de *cuánto* les motiva emprender. Para comunicar ese continuo se usan **dos perfiles**: *motivación moderada* (`{python} tam[0]` personas) y *motivación alta* (`{python} tam[1]`).
+- El formulario corto ubica a una persona en el perfil correcto **`{python} pct(100 * acc_form)` de las veces**.
+
+**Cómo usarlo.** Como **punto de partida para una conversación o una mentoría**, no como decisión de inversión. Los perfiles describen motivaciones declaradas, no predicen éxito: los datos no incluyen ninguna medida de resultado (ventas, supervivencia del negocio, financiación obtenida).
+
+:::
+
+# Datos y preparación
+
+```{python}
+#| echo: false
+techo = desc.sort_values("pct_5", ascending=False).head(3)
+```
+
+- **Muestra:** `{python} n_total` personas que ya emprenden (ninguna es solo estudiante ni "no emprendedora"). Respondieron **19 ítems en escala Likert de 5 puntos** (1 = nada importante, 5 = muy importante) y 6 variables de contexto. No hay respuestas faltantes.
+- **Respuestas planas:** `{python} n_planas` personas respondieron el mismo valor (5) en las 19 preguntas. No aportan información sobre *qué* las motiva y empujan todas las correlaciones hacia arriba, así que se excluyen del análisis principal (n = `{python} n_analisis`).
+- **Efecto techo:** en `{python} n_techo` de 19 ítems más de la mitad de las personas respondió 5. Por eso se usan **correlaciones policóricas**, diseñadas para respuestas ordinales, en lugar de Pearson, que trata 1–5 como números continuos y subestima la asociación cuando casi todo está en el extremo.
+- **Ítems invertidos:** ninguno. Todas las correlaciones entre ítems son positivas.
+- **Privacidad:** los datos crudos incluyen ciudad y una descripción libre del negocio. Esas variables bastan para reidentificar al 84 % de las personas, así que se eliminan al cargar los datos y **nunca se publican**. El repositorio público incluye un **dataset sintético** con la misma estructura (cópula gaussiana ordinal, documentada en `data/synthetic/FICHA.md`) para que cualquiera pueda correr el código.
+
+```{python}
+#| fig-cap: "Distribución de respuestas por ítem."
+figura("01_distribucion_items")
+```
+
+# Psicometría: qué mide el cuestionario
+
+## ¿Los datos sirven para un análisis factorial?
+
+Sí. La medida KMO es **`{python} f"{ps['kmo_total']:.2f}"`**: por encima de 0.80 se considera "meritoria". La prueba de Bartlett rechaza que las preguntas sean independientes (p < 0.001).
+
+## ¿Cuántas motivaciones hay?
+
+```{python}
+#| echo: false
+criterios = pd.DataFrame(
+    {
+        "Criterio": [
+            "Análisis paralelo (policóricas) — criterio principal",
+            "Análisis paralelo clásico (Pearson)",
+            "Análisis paralelo sobre la matriz reducida",
+            "Kaiser (autovalor > 1) — usado en el original",
+            "MAP de Velicer",
+        ],
+        "Factores": [
+            crit["paralelo_policorico"],
+            crit["paralelo_pearson_clasico"],
+            crit["paralelo_policorico_reducido"],
+            crit["kaiser"],
+            crit["map_velicer"],
+        ],
+    }
+)
+```
+
+El criterio se fijó **antes de ver los datos**: análisis paralelo con correlaciones policóricas (Garrido, Abad y Ponsoda, 2013). Retiene solo los factores que explican más que lo que produciría el azar. Kaiser, el criterio del trabajo original, sobreestima de forma conocida.
+
+```{python}
+#| echo: false
+tabla(criterios)
+```
+
+```{python}
+#| fig-cap: "Análisis paralelo: autovalores observados frente al percentil 95 de datos permutados."
+figura("02_analisis_paralelo")
+```
+
+## Las tres motivaciones
+
+Se usó **análisis factorial exploratorio** (factores comunes con extracción *minres*), no PCA. El PCA resume toda la varianza, incluido el error de medida, y por eso no es un análisis factorial. La rotación es **oblicua (oblimin)** porque es esperable que las motivaciones se relacionen; las correlaciones observadas entre factores van de `{python} f"{leer('correlacion_factores', index_col=0).where(lambda d: d < 0.999).min().min():.2f}"` a `{python} f"{leer('correlacion_factores', index_col=0).where(lambda d: d < 0.999).max().max():.2f}"`.
+
+```{python}
+#| fig-cap: "Cargas factoriales. Valores ≥ 0.30 rotulados; ⚠ marca ítems con carga baja o cruzada."
+figura("03_cargas")
+```
+
+**Por qué esos nombres.** Los nombres salen del contenido de los ítems con mayor carga:
+
+- **`{python} F[0]`:** aprovechar políticas públicas, invertir recursos propios, acceder a apoyos públicos, financiación externa y tradición o negocio familiar. Son motivos que dependen de condiciones **externas** que facilitan emprender.
+- **`{python} F[1]`:** autonomía, flexibilidad de tiempo, aplicar la experiencia y los conocimientos, el sueño de emprender. Son motivos **personales**, de realización.
+- **`{python} F[2]`:** desarrollar un producto nuevo y atender una necesidad insatisfecha. Corresponde al "emprendimiento por oportunidad". **Es tentativo:** solo tiene 2 ítems que lo miden con claridad.
+
+`{python} int((~asig["limpio"]).sum())` ítems no miden un solo factor con claridad: p17 (nuevo método de producción) carga en dos factores y p19 (red de contactos) no carga en ninguno.
+
+## Confiabilidad y estabilidad
+
+```{python}
+#| echo: false
+c = conf[["n_items", "alfa", "omega", "ic95_inf", "ic95_sup"]].copy()
+c.columns = ["Ítems", "α de Cronbach", "ω de McDonald", "IC 95 % inf.", "IC 95 % sup."]
+e = estab["pct_replicas_ge_085"].rename("% réplicas estables")
+tabla(c.join(e), index=True)
+```
+
+- **ω de McDonald** es la confiabilidad recomendada: a diferencia de α, no supone que todas las preguntas pesen igual. El intervalo de confianza del total corresponde a α.
+- **Estabilidad:** porcentaje de 500 remuestreos bootstrap en los que el factor reaparece casi idéntico (congruencia de Tucker ≥ 0.85). La tercera motivación reaparece solo en un `{python} pct(estab.iloc[2]["pct_replicas_ge_085"])` de los casos: por eso es tentativa.
+- **ω jerárquico = `{python} f"{ps['omega_jerarquico']:.2f}"`:** algo más de la mitad de la varianza del puntaje total refleja un **factor general**, "cuánto me motiva emprender en general". Este dato explica lo que pasa en la segmentación.
+
+## Sensibilidad: ¿y si fueran 2, 4 o 5 factores?
+
+```{python}
+#| echo: false
+a = alternativas.reset_index()[["n_factores", "items_limpios", "min_items_limpios_por_factor", "pct_replicas_estables_min", "elegida"]]
+a.columns = ["Factores", "Ítems limpios", "Mín. ítems por factor", "Estabilidad mínima (%)", "Elegida"]
+a["Elegida"] = a["Elegida"].map({True: "✔", False: ""})
+tabla(a)
+```
+
+Lectura honesta: los datos sostienen con claridad **dos** dimensiones amplias (recursos externos frente a motivación personal). La tercera supera al azar, pero es frágil. Los **5 factores del trabajo original** aparecen en el análisis exploratorio, pero dos de ellos tienen solo dos preguntas y no son estables.
+
+# ¿Cuántas preguntas bastan?
+
+Para cada motivación se eligieron los ítems con mayor carga **entre los que miden un solo factor**, hasta 3 por factor (el mínimo para identificar un factor).
+
+```{python}
+#| echo: false
+cc = comp[["items", "items_largo", "items_corto", "omega_largo", "omega_corto", "r_corto_puntaje_factorial"]].copy()
+cc.columns = ["Preguntas del formulario corto", "Ítems largo", "Ítems corto", "ω largo", "ω corto", "r con el puntaje completo"]
+tabla(cc, index=True)
+```
+
+```{python}
+#| fig-cap: "Correlación con el puntaje completo al ir agregando preguntas."
+figura("04_curva_items")
+```
+
+**Respuesta:** **`{python} fc["n_items"]` preguntas** (de 19) reproducen el puntaje total con r = `{python} f"{fc['r_total_corto_largo']:.2f}"`. Con `{python} k_corto` preguntas por factor se recupera r ≥ `{python} f"{r_k_min:.2f}"` en las motivaciones que tienen al menos `{python} k_corto` preguntas limpias. La correlación corto-largo está algo inflada porque las preguntas cortas también forman parte del puntaje largo. La comparación con las preguntas que **no** entraron al formulario es más exigente y sigue siendo alta (`{python} rango_resto`).
+
+# Segmentación y perfiles
+
+## ¿Hay grupos de personas?
+
+Se compararon cuatro algoritmos (K-means, jerárquico de Ward, mezclas gaussianas y *Latent Profile Analysis*) con 2 a 6 grupos. Para cada configuración se calcularon silueta, Davies-Bouldin, Calinski-Harabasz, BIC y, sobre todo, **estabilidad**: si al repetir el análisis con el 80 % de las personas (200 veces) salen los mismos grupos. La regla de elección se fijó antes de ver los resultados: descartar grupos con menos del 10 % de la muestra, exigir estabilidad (ARI ≥ 0.75) y, entre los estables, quedarse con la mejor silueta.
+
+```{python}
+#| fig-cap: "Estabilidad y silueta por algoritmo y número de grupos (puntajes factoriales)."
+figura("05_seleccion_k_factores")
+```
+
+**Resultado:** `{python} seg["motivo"]`
+
+::: {.callout-important}
+## No hay grupos naturales
+
+La silueta observada (`{python} f"{nula['silueta_observada']:.2f}"`) **no supera** a la de datos simulados **sin ningún grupo** con la misma media y covarianza (`{python} f"{nula['silueta_nula_media']:.2f}"`, p = `{python} f"{nula['p_valor']:.2f}"`). Tampoco HDBSCAN, un algoritmo que solo forma grupos donde hay "núcleos densos", encuentra ninguno. Los dos perfiles son **un corte útil de un continuo**, no dos tipos de personas. Sirven para describir y comunicar, siempre que se diga esto.
+:::
+
+Sobre los componentes del PCA, la representación del trabajo original, **ninguna** configuración es estable: el ARI máximo es `{python} f"{sg['pca']['ari_medio']:.2f}"`.
+
+## Los dos perfiles
+
+```{python}
+#| fig-cap: "Puntaje medio de cada perfil en las tres motivaciones (0 = promedio de la muestra)."
+figura("06_perfiles_factores")
+```
+
+```{python}
+#| echo: false
+p = perf[["nombre", "n"] + [f"media_{f}" for f in F]].copy()
+p.columns = ["Perfil", "Personas"] + [f"{f} (1–5)" for f in F]
+tabla(p, decimales=1, index=True)
+```
+
+Los perfiles difieren en **intensidad**, no en tipo de motivación: el perfil 2 puntúa más alto en las tres a la vez, consecuencia directa del factor general. "Moderada" no significa baja: la autonomía promedia `{python} f"{aut_moderada:.1f}"` sobre 5 en ese perfil. **No se ordenan como "más o menos potencial emprendedor"**. El orden refleja cuánto declaran que los motiva emprender, y no hay ningún dato de resultado que permita hablar de potencial.
+
+## Sensibilidad: perfiles por "forma"
+
+Si se quita a cada persona su nivel general y se mira solo **qué la motiva más**, aparecen 3 perfiles (estabilidad `{python} f"{sg['forma']['ari_medio']:.2f}"`). Tampoco superan a la prueba de "sin grupos" (p = `{python} f"{sg['forma']['prueba_sin_grupos']['p_valor']:.2f}"`).
+
+```{python}
+#| fig-cap: "Perfiles por forma: qué motivación predomina en cada grupo."
+figura("06_perfiles_forma")
+```
+
+::: {.callout-warning}
+## Por qué no se usan estos perfiles en la herramienta
+
+El perfil *`{python} nombres_seg["forma"][seg_innov]`* concentra **`{python} f"{hombres[seg_innov]:.0f} %"` de hombres**, frente a `{python} rango_otros_h` en los otros. También se desbalancea por nivel educativo (p = `{python} f"{edu_forma['p_permutacion']:.2f}"`). Si alguien lo usara como el perfil "invertible", favorecería sistemáticamente a hombres con posgrado. Ver la sección de ética.
+:::
+
+## Validación externa
+
+La única variable externa relacionada con emprender es la ocupación (solo emprendedor o emprendedor y estudiante), junto con los años de funcionamiento del negocio.
+
+```{python}
+#| echo: false
+v = val[["variable", "prueba", "p", "efecto", "medida_efecto", "detalle"]].copy()
+v.columns = ["Variable", "Prueba", "p", "Efecto", "Medida", "Detalle"]
+tabla(v, decimales=3)
+```
+
+Los perfiles **no** se diferencian en estas variables. Es una limitación de la muestra, no del método: todas las personas ya emprenden y no hay ninguna medida de éxito. **Los perfiles no tienen validación externa.**
+
+# Modelo del formulario corto
+
+Con **solo las `{python} fc["n_items"]` preguntas del formulario corto** se entrenó un clasificador que asigna el perfil de una persona nueva. Se evaluó con validación cruzada estratificada (5 pliegues × 20 repeticiones) frente a una línea base que siempre predice el perfil más común.
+
+```{python}
+#| echo: false
+mm = modelos[["accuracy", "f1_macro", "f1_macro_de", "accuracy_balanceada"]].copy()
+mm.columns = ["Exactitud", "F1-macro", "DE F1", "Exactitud balanceada"]
+tabla(mm, index=True)
+```
+
+```{python}
+#| fig-cap: "Matriz de confusión acumulada en la validación cruzada."
+figura("07_confusion_factores")
+```
+
+- **Modelo elegido:** `{python} md["factores"]["modelo"]`. `{python} md["factores"]["motivo"]`
+- Mide **qué tan bien el formulario corto reproduce el perfil** obtenido con el cuestionario completo. **No mide si alguien es o será buen emprendedor.**
+- El primer análisis reportaba 97 % de exactitud. Esa cifra no era válida: la "etiqueta de potencial" se había construido sumando los mismos factores que luego se usaban para predecirla.
+
+# Limitaciones, ética y próximos pasos
+
+**Limitaciones**
+
+1. **No hay variable de resultado.** Nada permite afirmar que un perfil tenga más "potencial" o éxito.
+2. **Solo emprendedores.** No hay contraste con personas que no emprenden.
+3. **Muestra pequeña** (n = `{python} n_analisis`) y no probabilística. Los resultados describen a esta muestra.
+4. **La tercera motivación es tentativa** (2 ítems, estabilidad baja).
+5. **Los perfiles son cortes de un continuo**, no tipos naturales.
+6. **Motivaciones declaradas**, con fuerte efecto techo y posible deseabilidad social (`{python} n_planas` personas marcaron 5 en todo).
+
+**Ética**
+
+- Los atributos sensibles (género, edad, estado civil, nivel educativo) **nunca** entran a ningún modelo. Solo se usan después, para revisar si los perfiles quedan desbalanceados.
+- En los perfiles de la herramienta **no se detecta desbalance** por género (p = `{python} f"{sesgo_nivel.set_index('atributo').loc['genero','p_permutacion']:.2f}"`), edad, estado civil ni educación. Con esta muestra pequeña, "no detectado" no equivale a "no existe".
+- Los perfiles por forma **sí** muestran desbalance por género (V de Cramér = `{python} f"{gen_forma['v_cramer']:.2f}"`) y educación, y por eso no se usan.
+- **La herramienta es un apoyo para conversar, no una decisión automática.** Usar un perfil para decidir una inversión exigiría primero validarlo contra resultados reales.
+
+**Próximos pasos**
+
+1. Recolectar una muestra nueva que incluya **no emprendedores** y **resultados** (supervivencia, ventas, financiación).
+2. **Análisis factorial confirmatorio** del cuestionario corto en esa muestra independiente (en esta no se puede: sería circular).
+3. **Invarianza de medición por género**: confirmar que las preguntas miden lo mismo en hombres y mujeres.
+4. Redactar más ítems para la motivación de *oportunidad e innovación*, hoy medida solo con 2.
+
+# Antes vs después
+
+```{python}
+#| echo: false
+tabla(leer("resumen_antes_despues"), decimales=2)
+```
+
+**Qué cambió y por qué importa:** el análisis original no era incorrecto por mala fe, sino por decisiones por defecto: Kaiser, PCA tomado por análisis factorial, k elegido sin criterio y una métrica de exactitud circular. Ninguna de esas decisiones se podía verificar. La versión 2 hace explícita cada decisión, la justifica y la somete a pruebas de estabilidad. El resultado es más modesto y, por lo mismo, más defendible.
+
+# Cómo reproducir
+
+Desde una terminal, con [uv](https://docs.astral.sh/uv/) y [Quarto](https://quarto.org) instalados:
+
+```bash
+git clone <repo> && cd <repo>
+uv sync --locked
+uv run emprende all            # datos sintéticos; con los datos reales: --fuente real
+```
+
+- Todos los parámetros (semillas, umbrales, k candidatos) están en `config.yaml`. La semilla maestra es `{python} CFG["semilla"]`.
+- La corrida completa con datos reales tarda unos 18 minutos. Dos corridas desde cero producen tablas idénticas byte a byte.
+- `uv run pytest` ejecuta los tests. La integración continua corre lint, tests y el pipeline con datos sintéticos en cada push.
+- Este reporte se generó con: fuente = **`{python} fuente`**.

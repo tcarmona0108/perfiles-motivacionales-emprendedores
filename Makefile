@@ -6,8 +6,9 @@
 
 FUENTE ?= sintetico
 
-.PHONY: all instalar analisis sintetico test lint formato privacidad limpiar
+.PHONY: all instalar analisis reporte sintetico test lint formato privacidad limpiar
 
+# Datos -> psicometría -> segmentación -> modelo -> figuras -> results/ -> reporte HTML
 all: analisis
 
 instalar:
@@ -15,6 +16,10 @@ instalar:
 
 analisis:
 	uv run emprende all --fuente $(FUENTE)
+
+# Solo re-renderiza el reporte (requiere Quarto en el PATH o QUARTO_BIN).
+reporte:
+	uv run emprende reporte --fuente $(FUENTE)
 
 # Regenera data/synthetic/ a partir de los datos reales (solo local).
 sintetico:

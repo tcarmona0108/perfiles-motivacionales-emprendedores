@@ -30,6 +30,11 @@ jobs:
       - name: Tests
         run: uv run pytest
 
+      # Quarto hace falta porque `emprende all` termina renderizando el reporte.
+      - uses: quarto-dev/quarto-actions/setup@v2
+        with:
+          version: 1.11.9
+
       # Prueba de humo: el pipeline completo corre de punta a punta con los
       # datos sintéticos versionados (los reales nunca están en la CI).
       # --rapido usa ~10 % de las iteraciones: verifica que todo corre, no
