@@ -7,3 +7,10 @@ table { font-size: .92rem; }
 .cifra { font-size: 1.6rem; font-weight: 700; color: #1c5cab; display: block; line-height: 1.2; }
 .cifras { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: .75rem; margin: 1rem 0; }
 .cifras > div { background: #fcfcfb; border: 1px solid #e4e3df; border-radius: 6px; padding: .6rem .8rem; font-size: .9rem; }
+
+/* Accesos destacados al código reproducible y a la demo */
+.accesos { display: flex; flex-wrap: wrap; gap: .75rem; margin: 1.25rem 0 .5rem; }
+.reproducir { background: #f4f7fb; border: 1px solid #b7d3f6; border-left: 6px solid #2a78d6;
+  border-radius: 8px; padding: 1.25rem 1.5rem; margin: 1rem 0 1.5rem; }
+.reproducir p { margin-bottom: .75rem; }
+.reproducir .url { margin: .6rem 0 0; font-family: var(--bs-font-monospace); font-size: .9rem; color: #52514e; }

@@ -80,7 +80,6 @@ perf = leer("perfiles_factores", index_col=0)
 perf_forma = leer("perfiles_forma", index_col=0)
 md = leer_json("modelo")
 modelos = leer("modelos_factores", index_col=0)
-sesgo_nivel = leer("sesgo_factores")
 sesgo_forma = leer("sesgo_forma")
 val = leer("validacion_externa_factores")
 val_forma = leer("validacion_externa_forma")
@@ -97,7 +96,6 @@ f1_form = md["factores"]["f1_macro"]
 f1_base = md["factores"]["f1_base"]
 acc_form = md["factores"]["accuracy"]
 tam = seg["tamanos"]
-gen_forma = sesgo_forma.set_index("atributo").loc["genero"]
 edu_forma = sesgo_forma.set_index("atributo").loc["nivel_educativo_grupo"]
 genero_forma = leer("sesgo_forma_genero", index_col=0)
 seg_innov = [k for k, v in nombres_seg["forma"].items() if "Oportunidad" in v][0]
@@ -127,6 +125,20 @@ if fuente != "real":
 Versión 2 (análisis reproducible): `{python} CFG["creditos"]["autor_v2"]`.
 El trabajo original se conserva en `legacy/` para comparar el antes y el después.
 :::
+
+```{python}
+#| output: asis
+#| echo: false
+# Accesos visibles al código reproducible y a la demo (URLs desde config.yaml).
+print(
+    '<div class="accesos">'
+    f'<a class="btn btn-primary btn-lg" href="{CFG["enlaces"]["repositorio"]}" role="button">'
+    "Código y reproducción en GitHub →</a>"
+    f'<a class="btn btn-outline-primary btn-lg" href="{CFG["enlaces"]["demo"]}" role="button">'
+    "Probar la demo</a>"
+    "</div>"
+)
+```
 
 # Resumen ejecutivo {.unnumbered}
 
@@ -332,7 +344,7 @@ figura("06_perfiles_forma")
 ::: {.callout-warning}
 ## Por qué no se usan estos perfiles en la herramienta
 
-El perfil *`{python} nombres_seg["forma"][seg_innov]`* concentra **`{python} f"{hombres[seg_innov]:.0f} %"` de hombres**, frente a `{python} rango_otros_h` en los otros. También se desbalancea por nivel educativo (p = `{python} f"{edu_forma['p_permutacion']:.2f}"`). Si alguien lo usara como el perfil "invertible", favorecería sistemáticamente a hombres con posgrado. Ver la sección de ética.
+El perfil *`{python} nombres_seg["forma"][seg_innov]`* concentra **`{python} f"{hombres[seg_innov]:.0f} %"` de hombres**, frente a `{python} rango_otros_h` en los otros. También se desbalancea por nivel educativo (p = `{python} f"{edu_forma['p_permutacion']:.2f}"`). Si alguien lo usara como el perfil "invertible", favorecería sistemáticamente a hombres con posgrado.
 :::
 
 ## Validación externa
@@ -368,31 +380,6 @@ figura("07_confusion_factores")
 - Mide **qué tan bien el formulario corto reproduce el perfil** obtenido con el cuestionario completo. **No mide si alguien es o será buen emprendedor.**
 - El primer análisis reportaba 97 % de exactitud. Esa cifra no era válida: la "etiqueta de potencial" se había construido sumando los mismos factores que luego se usaban para predecirla.
 
-# Limitaciones, ética y próximos pasos
-
-**Limitaciones**
-
-1. **No hay variable de resultado.** Nada permite afirmar que un perfil tenga más "potencial" o éxito.
-2. **Solo emprendedores.** No hay contraste con personas que no emprenden.
-3. **Muestra pequeña** (n = `{python} n_analisis`) y no probabilística. Los resultados describen a esta muestra.
-4. **La tercera motivación es tentativa** (2 ítems, estabilidad baja).
-5. **Los perfiles son cortes de un continuo**, no tipos naturales.
-6. **Motivaciones declaradas**, con fuerte efecto techo y posible deseabilidad social (`{python} n_planas` personas marcaron 5 en todo).
-
-**Ética**
-
-- Los atributos sensibles (género, edad, estado civil, nivel educativo) **nunca** entran a ningún modelo. Solo se usan después, para revisar si los perfiles quedan desbalanceados.
-- En los perfiles de la herramienta **no se detecta desbalance** por género (p = `{python} f"{sesgo_nivel.set_index('atributo').loc['genero','p_permutacion']:.2f}"`), edad, estado civil ni educación. Con esta muestra pequeña, "no detectado" no equivale a "no existe".
-- Los perfiles por forma **sí** muestran desbalance por género (V de Cramér = `{python} f"{gen_forma['v_cramer']:.2f}"`) y educación, y por eso no se usan.
-- **La herramienta es un apoyo para conversar, no una decisión automática.** Usar un perfil para decidir una inversión exigiría primero validarlo contra resultados reales.
-
-**Próximos pasos**
-
-1. Recolectar una muestra nueva que incluya **no emprendedores** y **resultados** (supervivencia, ventas, financiación).
-2. **Análisis factorial confirmatorio** del cuestionario corto en esa muestra independiente (en esta no se puede: sería circular).
-3. **Invarianza de medición por género**: confirmar que las preguntas miden lo mismo en hombres y mujeres.
-4. Redactar más ítems para la motivación de *oportunidad e innovación*, hoy medida solo con 2.
-
 # Antes vs después
 
 ```{python}
@@ -404,7 +391,22 @@ tabla(leer("resumen_antes_despues"), decimales=2)
 
 # Cómo reproducir
 
-Código: [github.com/tcarmona0108/perfiles-motivacionales-emprendedores](https://github.com/tcarmona0108/perfiles-motivacionales-emprendedores). Desde una terminal, con [uv](https://docs.astral.sh/uv/) y [Quarto](https://quarto.org) instalados:
+```{python}
+#| output: asis
+#| echo: false
+url = CFG["enlaces"]["repositorio"]
+print(
+    '<div class="reproducir">'
+    "<p><strong>Todo el análisis se regenera con un comando</strong>: código, datos sintéticos "
+    "públicos, parámetros y tests están en el repositorio.</p>"
+    f'<a class="btn btn-primary btn-lg" href="{url}" role="button">'
+    "Ver el código y reproducir en GitHub →</a>"
+    f'<p class="url">{url.removeprefix("https://")}</p>'
+    "</div>"
+)
+```
+
+Desde una terminal, con [uv](https://docs.astral.sh/uv/) y [Quarto](https://quarto.org) instalados:
 
 ```bash
 git clone https://github.com/tcarmona0108/perfiles-motivacionales-emprendedores.git
