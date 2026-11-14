@@ -1,0 +1,37 @@
+# ── PRIVACIDAD ────────────────────────────────────────────────────────────
+# Los datos crudos contienen cuasi-identificadores (ciudad, objeto social,
+# demografía). NUNCA se versionan. Ver docs/diagnostico.md §2.5.
+data/raw/
+data/processed/
+# Salidas a nivel de persona (puntajes, segmentos) o generadas con datos reales.
+outputs/
+# Cualquier CSV/Excel suelto fuera de data/synthetic se ignora por defecto.
+*.csv
+*.xlsx
+*.xls
+!data/synthetic/*.csv
+!results/**/*.csv
+
+# ── Python ────────────────────────────────────────────────────────────────
+__pycache__/
+*.py[cod]
+.venv/
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+*.egg-info/
+build/
+dist/
+
+# ── Notebooks / Quarto ────────────────────────────────────────────────────
+.ipynb_checkpoints/
+reports/_site/
+reports/.quarto/
+reports/*_files/
+/.quarto/
+
+# ── Sistema ───────────────────────────────────────────────────────────────
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
