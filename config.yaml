@@ -79,13 +79,32 @@ sintetico:
   n: null  # null = mismo n que el crudo
 
 psicometria:
+  # Corrección de continuidad para celdas vacías de las policóricas (valor por
+  # defecto de psych::polychoric). Sin ella, con n≈120 y efecto techo, la matriz
+  # real no es definida positiva y aparecen casos Heywood.
+  correccion_continuidad: 0.5
+  # Criterio para el número de factores, fijado ANTES de ver los resultados:
+  # análisis paralelo policórico (autovalores completos, percentil 95).
+  # Poner un entero aquí fuerza otro número (para sensibilidad).
+  n_factores: paralelo
+  m_alternativos: [2, 3, 4, 5]  # soluciones comparadas en la tabla de sensibilidad
   n_iter_paralelo: 1000      # réplicas del análisis paralelo
   percentil_paralelo: 95     # criterio conservador (Glorfeld, 1995)
   metodo_extraccion: minres  # factores comunes, no componentes
   rotacion: oblimin          # oblicua: se espera que los factores correlacionen
   carga_minima: 0.40         # carga principal mínima para asignar un ítem
   diferencia_cruzada: 0.20   # carga principal - segunda carga < esto => carga cruzada
-  n_bootstrap: 500           # IC por bootstrap de alfa/omega y correlaciones
+  n_bootstrap: 500           # IC por bootstrap de alfa/omega y estabilidad de la EFA
+  n_bootstrap_alternativos: 100  # estabilidad de las soluciones de la tabla de sensibilidad
+
+# Nombre de cada factor -> ítem ancla. El factor que más carga el ítem ancla
+# recibe el nombre; así el nombre no depende del orden en que la EFA devuelve
+# los factores. Los nombres se justifican con el contenido de los ítems
+# (ver reporte, sección Psicometría).
+factores:
+  Recursos y entorno de apoyo: p10   # financiación, apoyos públicos, recursos propios, familia
+  Autonomía y autorrealización: p03  # independencia, flexibilidad, sueño, aplicar lo que sé
+  Oportunidad e innovación: p16      # necesidad insatisfecha, nuevo producto (tentativo: 2 ítems)
 
 reduccion:
   items_por_factor: 3        # 3 es el mínimo para identificar un factor
@@ -98,10 +117,14 @@ segmentacion:
   fraccion_bootstrap: 0.8    # submuestreo sin reemplazo (evita duplicados en Ward/GMM)
   n_init: 50                 # reinicios de K-means/GMM para evitar mínimos locales
   ari_estable: 0.75          # umbral convencional de "estable" (Hennig, 2007)
+  tamano_minimo_segmento: 0.10  # ningún perfil con <10 % de la muestra (~12 personas)
+  n_sim_sin_grupos: 200      # simulaciones para la prueba de silueta contra "sin grupos"
+  min_cluster_hdbscan: 10
 
 perfiles:
   alfa: 0.05
   correccion: holm
+  n_permutaciones: 2000      # p-valores por permutación (validación externa y sesgo)
 
 modelo:
   cv_splits: 5

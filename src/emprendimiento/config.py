@@ -68,6 +68,21 @@ class Config:
             (d / sub).mkdir(parents=True, exist_ok=True)
         return d
 
+    def rapido(self) -> Config:
+        """Copia con ~10 % de las iteraciones (bootstrap, permutaciones, CV).
+
+        Solo para la CI y pruebas de humo: verifica que todo corre, pero sus
+        números NO son los oficiales del reporte.
+        """
+        import copy
+
+        d = copy.deepcopy(self.datos)
+        d["psicometria"].update(n_iter_paralelo=100, n_bootstrap=40, n_bootstrap_alternativos=20)
+        d["segmentacion"].update(n_bootstrap=20, n_sim_sin_grupos=20, n_init=10)
+        d["modelo"].update(cv_repeticiones=2)
+        d["perfiles"].update(n_permutaciones=200)
+        return Config(datos=d, raiz=self.raiz)
+
     def rng(self, desplazamiento: int = 0) -> np.random.Generator:
         """Generador aleatorio derivado de la semilla maestra.
 

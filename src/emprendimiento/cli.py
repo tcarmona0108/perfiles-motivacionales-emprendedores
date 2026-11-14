@@ -32,9 +32,16 @@ def main(argv: list[str] | None = None) -> int:
     )
     parser.add_argument("--fuente", choices=["real", "sintetico"], default=None)
     parser.add_argument("--config", default=None, help="Ruta alternativa a config.yaml")
+    parser.add_argument(
+        "--rapido",
+        action="store_true",
+        help="~10 %% de las iteraciones (solo CI/pruebas; no son los números oficiales).",
+    )
     args = parser.parse_args(argv)
 
     cfg = cargar_config(args.config)
+    if args.rapido:
+        cfg = cfg.rapido()
     fuente = args.fuente or cfg["datos"]["fuente"]
 
     if args.paso == "sintetico":

@@ -32,5 +32,7 @@ jobs:
 
       # Prueba de humo: el pipeline completo corre de punta a punta con los
       # datos sintéticos versionados (los reales nunca están en la CI).
-      - name: Pipeline completo
-        run: uv run emprende all --fuente sintetico
+      # --rapido usa ~10 % de las iteraciones: verifica que todo corre, no
+      # produce los números oficiales.
+      - name: Pipeline completo (modo rápido)
+        run: uv run emprende all --fuente sintetico --rapido
