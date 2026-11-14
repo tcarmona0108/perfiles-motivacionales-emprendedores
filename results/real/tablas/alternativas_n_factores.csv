@@ -1,0 +1,5 @@
+n_factores,items_limpios,min_items_limpios_por_factor,heywood,congruencia_min,pct_replicas_estables_min,elegida
+2,16,8,False,0.94,92.0,False
+3,17,2,False,0.799,51.0,True
+4,16,2,False,0.836,71.0,False
+5,14,2,False,0.871,73.0,False

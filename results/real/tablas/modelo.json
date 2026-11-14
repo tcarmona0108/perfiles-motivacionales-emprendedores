@@ -1,0 +1,16 @@
+{
+  "factores": {
+    "modelo": "Regresión logística",
+    "motivo": "Regresión logística es el modelo con mayor F1-macro (0.89) y además es interpretable; el siguiente es Random forest (0.85).",
+    "f1_macro": 0.8916298909962468,
+    "accuracy": 0.8954166666666667,
+    "f1_base": 0.36257309941520477
+  },
+  "forma": {
+    "modelo": "Regresión logística",
+    "motivo": "Regresión logística es el modelo con mayor F1-macro (0.85) y además es interpretable; el siguiente es Random forest (0.80).",
+    "f1_macro": 0.8468538933808147,
+    "accuracy": 0.8512499999999998,
+    "f1_base": 0.19792780748663097
+  }
+}

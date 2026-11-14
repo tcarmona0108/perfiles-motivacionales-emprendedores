@@ -5,6 +5,9 @@ data/raw/
 data/processed/
 # Salidas a nivel de persona (puntajes, segmentos) o generadas con datos reales.
 outputs/
+# results/real/ SÍ se versiona (solo agregados, ver paso "publicar").
+# results/sintetico/ es regenerable en cualquier máquina: no se versiona.
+results/sintetico/
 # Cualquier CSV/Excel suelto fuera de data/synthetic se ignora por defecto.
 *.csv
 *.xlsx
@@ -35,3 +38,6 @@ reports/*_files/
 Thumbs.db
 .vscode/
 .idea/
+
+# Configuración local del entorno de Claude (servidores de vista previa)
+.claude/

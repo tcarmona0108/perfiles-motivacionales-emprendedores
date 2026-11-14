@@ -1,0 +1,5 @@
+atributo,chi2,p_permutacion,v_cramer,lectura
+genero,10.0277,0.01,0.294,Desbalance detectable: revisar antes de usar el segmento para decidir
+rango_edad,11.9266,0.1464,0.2267,Sin desbalance detectable con esta muestra
+estado_civil,4.6716,0.3368,0.1419,Sin desbalance detectable con esta muestra
+nivel_educativo_grupo,14.4715,0.024,0.2498,Desbalance detectable: revisar antes de usar el segmento para decidir

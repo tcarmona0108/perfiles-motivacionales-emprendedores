@@ -1,0 +1,3 @@
+variable,prueba,estadistico,p,efecto,medida_efecto,detalle
+Ocupación (emprendedor / ambos),χ² (p por permutación),2.8133,0.1384,0.1557,V de Cramér,seg1: 24% ambos; seg2: 12% ambos
+Años de funcionamiento,Kruskal-Wallis,1.4699,0.2254,0.0128,ε²,seg1: mediana 4; seg2: mediana 3

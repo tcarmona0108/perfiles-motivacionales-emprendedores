@@ -600,6 +600,66 @@ def paso_resumen(cfg: Config, fuente: Fuente) -> None:
     )
 
 
+# ═══════════════════════════ Publicación de resultados agregados ═════════════
+# Tablas a nivel de persona: nunca salen de outputs/ (ignorado por git).
+NO_PUBLICABLES = {"respuestas_limpias.csv", "puntajes_factoriales.csv", "segmentos.csv"}
+# Red de seguridad: ninguna tabla agregada tiene tantas filas (la mayor tiene 20).
+# Si una la supera, probablemente es una tabla por persona que se coló.
+MAX_FILAS_PUBLICABLES = 40
+
+
+def paso_publicar(cfg: Config, fuente: Fuente) -> None:
+    """Copia a ``results/<fuente>/`` solo resultados agregados (tablas y figuras).
+
+    ``results/real/`` se versiona: es lo que alimenta el reporte público y la
+    demo. Por eso se excluyen explícitamente las tablas por persona y se
+    verifica el tamaño de cada tabla antes de copiarla.
+    """
+    import shutil
+
+    origen = cfg.dir_salidas(fuente)
+    destino = cfg.ruta("results") / fuente
+    if destino.exists():
+        shutil.rmtree(destino)
+    (destino / "tablas").mkdir(parents=True)
+    (destino / "figuras").mkdir(parents=True)
+    for archivo in sorted((origen / "tablas").iterdir()):
+        if archivo.name in NO_PUBLICABLES:
+            continue
+        if archivo.suffix == ".csv":
+            filas = len(pd.read_csv(archivo))
+            if filas > MAX_FILAS_PUBLICABLES:
+                raise ValueError(
+                    f"{archivo.name} tiene {filas} filas: ¿datos por persona? No se publica."
+                )
+        shutil.copy2(archivo, destino / "tablas" / archivo.name)
+    for archivo in sorted((origen / "figuras").glob("*.png")):
+        shutil.copy2(archivo, destino / "figuras" / archivo.name)
+
+
+def paso_reporte(cfg: Config, fuente: Fuente) -> None:
+    """Renderiza el reporte Quarto (``reports/``) a HTML con los resultados de la fuente.
+
+    Quarto se busca en la variable de entorno ``QUARTO_BIN`` o en el PATH.
+    ``QUARTO_PYTHON`` apunta al intérprete actual: en Windows, Quarto usaría
+    por defecto el lanzador ``py`` (otro Python, sin las dependencias del proyecto).
+    """
+    import os
+    import shutil
+    import subprocess
+    import sys
+
+    quarto = os.environ.get("QUARTO_BIN") or shutil.which("quarto")
+    if not quarto:
+        raise RuntimeError(
+            "No se encontró Quarto. Instálalo desde https://quarto.org o define QUARTO_BIN "
+            "con la ruta al ejecutable."
+        )
+    # La fuente se pasa por variable de entorno: `quarto render -P` exigiría papermill.
+    entorno = {**os.environ, "QUARTO_PYTHON": sys.executable, "EMPRENDE_FUENTE": fuente}
+    subprocess.run([quarto, "render", str(cfg.ruta("reports"))], check=True, env=entorno)
+
+
 # ═══════════════════════════ Sintético ═══════════════════════════════════════
 def generar_sintetico(cfg: Config) -> None:
     """Ajusta la cópula sobre los datos reales y escribe el CSV sintético y su ficha."""
@@ -632,4 +692,6 @@ PASOS: dict[str, Callable[[Config, Fuente], object]] = {
     "sesgo": paso_sesgo,
     "figuras": paso_figuras,
     "resumen": paso_resumen,
+    "publicar": paso_publicar,
+    "reporte": paso_reporte,
 }

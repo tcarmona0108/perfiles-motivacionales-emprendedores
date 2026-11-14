@@ -1,0 +1,29 @@
+{
+  "n": 116,
+  "kmo_total": 0.803949147327612,
+  "kmo_min_item": 0.6591137906527851,
+  "bartlett_chi2": 1401.471624901176,
+  "bartlett_gl": 171,
+  "bartlett_p": 4.953352207904111e-192,
+  "matriz_suavizada": false,
+  "n_factores_por_criterio": {
+    "paralelo_policorico": 3,
+    "paralelo_policorico_reducido": 5,
+    "kaiser": 4,
+    "map_velicer": 5,
+    "paralelo_pearson_clasico": 3
+  },
+  "n_factores_elegido": 3,
+  "nombres_factores": [
+    "Recursos y entorno de apoyo",
+    "Autonomía y autorrealización",
+    "Oportunidad e innovación"
+  ],
+  "congruencia_vs_pearson": {
+    "Recursos y entorno de apoyo": 0.9932419556878531,
+    "Autonomía y autorrealización": 0.9327967150255189,
+    "Oportunidad e innovación": 0.9214175482840657
+  },
+  "omega_total": 0.9353323825081232,
+  "omega_jerarquico": 0.5549276764540173
+}

@@ -1,0 +1,69 @@
+{
+  "factores": {
+    "algoritmo": "kmeans",
+    "k": 2,
+    "silueta": 0.3375142170897347,
+    "ari_medio": 0.9053453899108928,
+    "estable": true,
+    "motivo": "1 de 20 configuraciones son estables (ARI medio ≥ 0.75); entre ellas, K-means con k=2 tiene la mejor silueta (0.34).",
+    "tamanos": [
+      50,
+      66
+    ],
+    "prueba_sin_grupos": {
+      "silueta_observada": 0.3375142170897347,
+      "silueta_nula_media": 0.30761954979145995,
+      "silueta_nula_p95": 0.3523287978737393,
+      "p_valor": 0.12437810945273632
+    },
+    "hdbscan": {
+      "n_grupos_densos": 0,
+      "pct_ruido": 100.0
+    }
+  },
+  "forma": {
+    "algoritmo": "kmeans",
+    "k": 3,
+    "silueta": 0.35360473377934004,
+    "ari_medio": 0.7672946388650572,
+    "estable": true,
+    "motivo": "2 de 20 configuraciones son estables (ARI medio ≥ 0.75); entre ellas, K-means con k=3 tiene la mejor silueta (0.35).",
+    "tamanos": [
+      33,
+      34,
+      49
+    ],
+    "prueba_sin_grupos": {
+      "silueta_observada": 0.35360473377934004,
+      "silueta_nula_media": 0.35187718090520603,
+      "silueta_nula_p95": 0.3818854499980401,
+      "p_valor": 0.44776119402985076
+    },
+    "hdbscan": {
+      "n_grupos_densos": 0,
+      "pct_ruido": 100.0
+    }
+  },
+  "pca": {
+    "algoritmo": "kmeans",
+    "k": 2,
+    "silueta": 0.2840000916468539,
+    "ari_medio": 0.5559961281907279,
+    "estable": false,
+    "motivo": "Ninguna configuración alcanza ARI medio ≥ 0.75: la estructura de grupos es débil. Se usa la más estable, K-means con k=2 (ARI medio 0.56).",
+    "tamanos": [
+      81,
+      35
+    ],
+    "prueba_sin_grupos": {
+      "silueta_observada": 0.2840000916468539,
+      "silueta_nula_media": 0.24787463512569574,
+      "silueta_nula_p95": 0.2738141910189638,
+      "p_valor": 0.029850746268656716
+    },
+    "hdbscan": {
+      "n_grupos_densos": 0,
+      "pct_ruido": 100.0
+    }
+  }
+}

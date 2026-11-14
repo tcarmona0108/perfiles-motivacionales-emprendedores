@@ -1,0 +1,48 @@
+{
+  "nombres_segmentos": {
+    "factores": {
+      "1": "Motivación moderada en todos los factores",
+      "2": "Motivación alta en todos los factores"
+    },
+    "forma": {
+      "1": "Predomina: Oportunidad e innovación",
+      "2": "Predomina: Autonomía y autorrealización",
+      "3": "Predomina: Recursos y entorno de apoyo"
+    }
+  },
+  "corto_vs_largo": {
+    "Autonomía y autorrealización": {
+      "items_largo": 8,
+      "items_corto": 3,
+      "omega_largo": 0.894,
+      "omega_corto": 0.79,
+      "alfa_largo": 0.878,
+      "alfa_corto": 0.731,
+      "r_corto_puntaje_factorial": 0.945,
+      "r_corto_resto": 0.782,
+      "items": "p03, p02, p07"
+    },
+    "Oportunidad e innovación": {
+      "items_largo": 2,
+      "items_corto": 2,
+      "omega_largo": 0.729,
+      "omega_corto": 0.729,
+      "alfa_largo": 0.713,
+      "alfa_corto": 0.713,
+      "r_corto_puntaje_factorial": 0.89,
+      "r_corto_resto": NaN,
+      "items": "p16, p15"
+    },
+    "Recursos y entorno de apoyo": {
+      "items_largo": 9,
+      "items_corto": 3,
+      "omega_largo": 0.873,
+      "omega_corto": 0.865,
+      "alfa_largo": 0.859,
+      "alfa_corto": 0.834,
+      "r_corto_puntaje_factorial": 0.944,
+      "r_corto_resto": 0.703,
+      "items": "p10, p12, p11"
+    }
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "items_por_factor": {
+    "Autonomía y autorrealización": [
+      "p03",
+      "p02",
+      "p07"
+    ],
+    "Oportunidad e innovación": [
+      "p16",
+      "p15"
+    ],
+    "Recursos y entorno de apoyo": [
+      "p10",
+      "p12",
+      "p11"
+    ]
+  },
+  "n_items": 8,
+  "factores_incompletos": [
+    "Oportunidad e innovación"
+  ],
+  "r_total_corto_largo": 0.9454511522156126
+}

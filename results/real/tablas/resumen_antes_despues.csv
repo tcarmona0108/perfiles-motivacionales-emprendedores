@@ -1,0 +1,10 @@
+Aspecto,Original,v2
+Matriz de correlación,Pearson,Policórica (ítems ordinales con efecto techo)
+Extracción / rotación,Componentes principales + varimax,Factores comunes (minres) + oblimin
+N.º de factores,5 (Kaiser),"3 (PA policórico); Kaiser=4, PA reducido=5, MAP=5"
+Ítems del cuestionario,19 (sin versión corta; la CFA usó 10),8 (r total corto–largo = 0.95)
+Confiabilidad,α = 0.911 (escala completa),Autonomía y autorrealización: ω=0.90; Oportunidad e innovación: ω=0.73; Recursos y entorno de apoyo: ω=0.87; Total: ω=0.91; ω_h=0.55
+Segmentación,K-means k=5 sin criterio,"Principal: K-means k=2 [50, 66]; forma: K-means k=3 [33, 34, 49]"
+Silueta,0.30 (calculada sobre datos distintos a los del modelo),"0.34 (sin grupos: 0.31, p=0.12)"
+Estabilidad,No evaluada,ARI principal 0.91; forma 0.77
+Clasificador,LogReg 97 % accuracy (etiqueta circular),factores: Regresión logística F1-macro=0.89 (base 0.36); forma: Regresión logística F1-macro=0.85 (base 0.20)

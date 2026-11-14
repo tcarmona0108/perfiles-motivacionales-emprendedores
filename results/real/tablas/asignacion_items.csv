@@ -1,0 +1,20 @@
+,etiqueta,factor,carga,segunda_carga,baja,cruzada,limpio
+p01,Sueño de ser emprendedor,Autonomía y autorrealización,0.526,0.268,False,False,True
+p02,Flexibilidad de tiempo,Autonomía y autorrealización,0.772,0.222,False,False,True
+p03,Autonomía e independencia,Autonomía y autorrealización,0.778,0.127,False,False,True
+p04,Obtener altos ingresos,Autonomía y autorrealización,0.586,0.367,False,False,True
+p05,Construir un negocio familiar,Recursos y entorno de apoyo,0.508,0.273,False,False,True
+p06,Explotar un conocimiento,Autonomía y autorrealización,0.67,0.263,False,False,True
+p07,Aplicar la experiencia adquirida,Autonomía y autorrealización,0.716,0.214,False,False,True
+p08,Poner en práctica habilidades,Autonomía y autorrealización,0.616,0.228,False,False,True
+p09,Aprovechar financiación externa,Recursos y entorno de apoyo,0.715,0.076,False,False,True
+p10,Aprovechar políticas públicas,Recursos y entorno de apoyo,0.838,0.082,False,False,True
+p11,Acceder a apoyos públicos,Recursos y entorno de apoyo,0.72,0.221,False,False,True
+p12,Invertir recursos financieros propios,Recursos y entorno de apoyo,0.772,0.117,False,False,True
+p13,Continuar una tradición familiar,Recursos y entorno de apoyo,0.699,0.163,False,False,True
+p14,Contribuir al bienestar de la comunidad,Autonomía y autorrealización,0.564,0.259,False,False,True
+p15,Atender una necesidad insatisfecha,Oportunidad e innovación,0.612,0.367,False,False,True
+p16,Desarrollar un nuevo producto o servicio,Oportunidad e innovación,0.73,0.129,False,False,True
+p17,Implementar un nuevo método de producción,Recursos y entorno de apoyo,0.545,0.481,False,True,False
+p18,"Innovación (ítem 18, etiqueta por confirmar)",Recursos y entorno de apoyo,0.468,0.263,False,False,True
+p19,Contar con una red de contactos,Recursos y entorno de apoyo,0.279,0.273,True,True,False

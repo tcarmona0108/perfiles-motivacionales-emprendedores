@@ -1,0 +1,11 @@
+{
+  "factores": {
+    "1": "Motivación moderada en todos los factores",
+    "2": "Motivación alta en todos los factores"
+  },
+  "forma": {
+    "1": "Predomina: Oportunidad e innovación",
+    "2": "Predomina: Autonomía y autorrealización",
+    "3": "Predomina: Recursos y entorno de apoyo"
+  }
+}

@@ -1,0 +1,5 @@
+modelo,accuracy,accuracy_de,f1_macro,f1_macro_de,accuracy_balanceada
+Línea base (clase mayoritaria),0.5688,0.0072,0.3626,0.0029,0.5
+Regresión logística,0.8954,0.0648,0.8916,0.0681,0.8911
+Árbol (profundidad 3),0.7959,0.0768,0.7849,0.0811,0.7836
+Random forest,0.8572,0.072,0.8496,0.0775,0.847
