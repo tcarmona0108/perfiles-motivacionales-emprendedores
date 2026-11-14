@@ -1,0 +1,115 @@
+{
+  "segmentacion": "factores",
+  "modelo": "Regresión logística",
+  "motivo": "Regresión logística es el modelo con mayor F1-macro (0.89) y además es interpretable; el siguiente es Random forest (0.85).",
+  "items": [
+    "p03",
+    "p02",
+    "p07",
+    "p16",
+    "p15",
+    "p10",
+    "p12",
+    "p11"
+  ],
+  "etiquetas_items": {
+    "p03": "Autonomía e independencia",
+    "p02": "Flexibilidad de tiempo",
+    "p07": "Aplicar la experiencia adquirida",
+    "p16": "Desarrollar un nuevo producto o servicio",
+    "p15": "Atender una necesidad insatisfecha",
+    "p10": "Aprovechar políticas públicas",
+    "p12": "Invertir recursos financieros propios",
+    "p11": "Acceder a apoyos públicos"
+  },
+  "items_por_factor": {
+    "Autonomía y autorrealización": [
+      "p03",
+      "p02",
+      "p07"
+    ],
+    "Oportunidad e innovación": [
+      "p16",
+      "p15"
+    ],
+    "Recursos y entorno de apoyo": [
+      "p10",
+      "p12",
+      "p11"
+    ]
+  },
+  "nombres_segmentos": {
+    "1": "Motivación moderada en todos los factores",
+    "2": "Motivación alta en todos los factores"
+  },
+  "tamanos_segmentos": {
+    "1": 50,
+    "2": 66
+  },
+  "media_corta_por_segmento": {
+    "1": {
+      "Autonomía y autorrealización": 4.1,
+      "Oportunidad e innovación": 3.18,
+      "Recursos y entorno de apoyo": 2.573
+    },
+    "2": {
+      "Autonomía y autorrealización": 4.631,
+      "Oportunidad e innovación": 4.076,
+      "Recursos y entorno de apoyo": 4.247
+    }
+  },
+  "media_corta_global": {
+    "Autonomía y autorrealización": 4.402,
+    "Oportunidad e innovación": 3.69,
+    "Recursos y entorno de apoyo": 3.526
+  },
+  "n_entrenamiento": 116,
+  "f1_macro_cv": 0.8916,
+  "accuracy_cv": 0.8954,
+  "f1_macro_linea_base": 0.3626,
+  "parametros": {
+    "media": [
+      4.474138,
+      4.275862,
+      4.456897,
+      3.465517,
+      3.913793,
+      3.551724,
+      3.603448,
+      3.422414
+    ],
+    "escala": [
+      0.904598,
+      1.022052,
+      0.874862,
+      1.234777,
+      1.038641,
+      1.360431,
+      1.388868,
+      1.2673
+    ],
+    "coeficientes": [
+      [
+        -0.473047,
+        0.53191,
+        1.464731,
+        1.748094,
+        0.579666,
+        1.197889,
+        1.260745,
+        1.237276
+      ]
+    ],
+    "interceptos": [
+      0.300773
+    ],
+    "clases": [
+      1,
+      2
+    ]
+  },
+  "creditos": {
+    "autor_v2": "Tomás Carmona (Maestría en Analítica, Universidad Nacional de Colombia)",
+    "investigacion_origen": "[Pendiente: nombre de la docente, afiliación y título de la investigación]"
+  }
+}

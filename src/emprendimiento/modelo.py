@@ -143,6 +143,28 @@ def explicar(modelo, x: pd.DataFrame, y: np.ndarray, semilla: int) -> pd.DataFra
     ).sort_values("importancia_media", ascending=False)
 
 
+def exportar_logistica(modelo) -> dict | None:
+    """Parámetros de una regresión logística (con escalado) como diccionario JSON.
+
+    Por qué JSON y no pickle: la demo solo necesita numpy para predecir (no
+    scikit-learn), no depende de la versión con la que se entrenó y no carga
+    código serializado. Solo contiene parámetros agregados: medias y escalas
+    de los ítems, coeficientes e interceptos.
+
+    Retorna ``None`` si el modelo no es una regresión logística con escalado.
+    """
+    if not (hasattr(modelo, "steps") and isinstance(modelo[-1], LogisticRegression)):
+        return None
+    escalador, logit = modelo[0], modelo[-1]
+    return {
+        "media": escalador.mean_.round(6).tolist(),
+        "escala": escalador.scale_.round(6).tolist(),
+        "coeficientes": logit.coef_.round(6).tolist(),
+        "interceptos": logit.intercept_.round(6).tolist(),
+        "clases": [int(c) for c in logit.classes_],
+    }
+
+
 def guardar(modelo, ruta: Path, metadatos: dict) -> None:
     """Guarda el modelo y un JSON con lo necesario para usarlo en la demo.
 

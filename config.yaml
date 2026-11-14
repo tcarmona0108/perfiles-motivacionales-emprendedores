@@ -141,3 +141,9 @@ modelo:
 
 sesgo:
   n_minimo_celda: 5          # no se reportan celdas con menos personas
+
+app:
+  # Segmentación que usa la demo. Decidida en el punto de control de la Fase 2:
+  # "factores" (nivel, k=2) es estable y sin desbalance demográfico detectable;
+  # "forma" se descartó por desbalance de género y educación.
+  segmentacion: factores

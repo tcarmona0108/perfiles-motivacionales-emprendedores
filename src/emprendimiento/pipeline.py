@@ -407,28 +407,38 @@ def paso_modelo(cfg: Config, fuente: Fuente) -> None:
         perf = _leer(cfg, fuente, f"perfiles_{s}", index_col=0)
         grupos_corto = corto["items_por_factor"]
         medias_corto = reduccion.puntajes_media(x, grupos_corto)
-        modelo.guardar(
-            final,
-            _dir(cfg, fuente, "modelos") / f"clasificador_{s}.joblib",
-            {
-                "segmentacion": s,
-                "modelo": elegido,
-                "motivo": motivo,
-                "items": items,
-                "etiquetas_items": {i: cfg.etiquetas[i] for i in items},
-                "items_por_factor": grupos_corto,
-                "nombres_segmentos": nombres[s],
-                "tamanos_segmentos": perf["n"].astype(int).to_dict(),
-                "media_corta_por_segmento": medias_corto.groupby(y)
-                .mean()
-                .round(3)
-                .to_dict(orient="index"),
-                "media_corta_global": medias_corto.mean().round(3).to_dict(),
-                "f1_macro_cv": float(f1),
-                "accuracy_cv": float(res.loc[elegido, "accuracy"]),
-                "f1_macro_linea_base": float(base),
+        meta = {
+            "segmentacion": s,
+            "modelo": elegido,
+            "motivo": motivo,
+            "items": items,
+            "etiquetas_items": {i: cfg.etiquetas[i] for i in items},
+            "items_por_factor": grupos_corto,
+            "nombres_segmentos": nombres[s],
+            "tamanos_segmentos": {str(k): int(v) for k, v in perf["n"].items()},
+            "media_corta_por_segmento": {
+                str(k): v
+                for k, v in medias_corto.groupby(y).mean().round(3).to_dict(orient="index").items()
             },
-        )
+            "media_corta_global": medias_corto.mean().round(3).to_dict(),
+            "n_entrenamiento": len(y),
+            "f1_macro_cv": round(float(f1), 4),
+            "accuracy_cv": round(float(res.loc[elegido, "accuracy"]), 4),
+            "f1_macro_linea_base": round(float(base), 4),
+        }
+        modelo.guardar(final, _dir(cfg, fuente, "modelos") / f"clasificador_{s}.joblib", meta)
+        # Modelo de la demo: parámetros en JSON (solo numpy para predecir, sin pickle).
+        if s == cfg["app"]["segmentacion"]:
+            parametros = modelo.exportar_logistica(final)
+            if parametros is None:
+                print(f"  ⚠ {elegido} no es exportable a JSON; la demo no se actualiza.")
+            else:
+                _json(
+                    cfg,
+                    fuente,
+                    "modelo_app",
+                    {**meta, "parametros": parametros, "creditos": cfg["creditos"]},
+                )
         resumen_global[s] = {
             "modelo": elegido,
             "motivo": motivo,
