@@ -48,7 +48,10 @@ def archivos_versionables() -> list[Path]:
     """Lista los archivos rastreados o no ignorados por git."""
     salida = subprocess.run(
         ["git", "ls-files", "--cached", "--others", "--exclude-standard"],
-        cwd=RAIZ, capture_output=True, text=True, check=True,
+        cwd=RAIZ,
+        capture_output=True,
+        text=True,
+        check=True,
     ).stdout
     return [RAIZ / p for p in salida.splitlines() if p]
 
@@ -72,7 +75,9 @@ def main() -> int:
         for h in hallazgos:
             print("  ", h)
         return 1
-    print(f"OK: {len(vals)} valores sensibles revisados en {len(archivos_versionables())} archivos.")
+    print(
+        f"OK: {len(vals)} valores sensibles revisados en {len(archivos_versionables())} archivos."
+    )
     return 0
 
 

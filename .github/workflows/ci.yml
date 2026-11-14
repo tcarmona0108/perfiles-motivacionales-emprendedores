@@ -1,0 +1,36 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  calidad:
+    name: Lint, tests y pipeline (datos sintéticos)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+
+      - name: Instalar uv
+        uses: astral-sh/setup-uv@v10
+        with:
+          enable-cache: true
+
+      - name: Instalar dependencias exactas (uv.lock)
+        run: uv sync --locked
+
+      - name: Lint y formato
+        run: |
+          uv run ruff check .
+          uv run ruff format --check .
+
+      - name: Tests
+        run: uv run pytest
+
+      # Prueba de humo: el pipeline completo corre de punta a punta con los
+      # datos sintéticos versionados (los reales nunca están en la CI).
+      - name: Pipeline completo
+        run: uv run emprende all --fuente sintetico

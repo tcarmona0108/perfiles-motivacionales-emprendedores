@@ -1,0 +1,114 @@
+# ═══════════════════════════════════════════════════════════════════════════
+# Parámetros del análisis. Todo número "mágico" del pipeline vive aquí.
+# Cambiar un valor aquí y correr `uv run emprende all` regenera todo.
+# ═══════════════════════════════════════════════════════════════════════════
+
+# Semilla única. Se derivan de ella todas las semillas (bootstrap, CV, sintético)
+# para que cualquier número del reporte se pueda regenerar exacto.
+semilla: 20241021
+
+datos:
+  # Fuente por defecto: "sintetico" para que cualquiera que clone el repo pueda
+  # correr el pipeline. Con los datos reales en local: --fuente real
+  fuente: sintetico
+  crudo: "data/raw/CSV Datos test.csv"
+  sintetico: data/synthetic/respuestas_sinteticas.csv
+  ficha_sintetico: data/synthetic/FICHA.md
+
+# Las salidas quedan en outputs/<fuente>/ (ignorado por git).
+salidas: outputs
+
+escala:
+  minimo: 1
+  maximo: 5
+
+# Ítems a invertir (x -> min + max - x) antes de analizar.
+# Vacío: ninguna correlación inter-ítem es negativa y todas las correlaciones
+# ítem-total son positivas (docs/diagnostico.md §2.3). Confirmar con el instrumento.
+items_invertidos: []
+
+# Etiquetas cortas de los ítems, tomadas del notebook original (celda 60).
+# PENDIENTE: confirmar con el cuestionario original (p18 aparece duplicado con p17).
+items:
+  p01: Sueño de ser emprendedor
+  p02: Flexibilidad de tiempo
+  p03: Autonomía e independencia
+  p04: Obtener altos ingresos
+  p05: Construir un negocio familiar
+  p06: Explotar un conocimiento
+  p07: Aplicar la experiencia adquirida
+  p08: Poner en práctica habilidades
+  p09: Aprovechar financiación externa
+  p10: Aprovechar políticas públicas
+  p11: Acceder a apoyos públicos
+  p12: Invertir recursos financieros propios
+  p13: Continuar una tradición familiar
+  p14: Contribuir al bienestar de la comunidad
+  p15: Atender una necesidad insatisfecha
+  p16: Desarrollar un nuevo producto o servicio
+  p17: Implementar un nuevo método de producción
+  p18: "Innovación (ítem 18, etiqueta por confirmar)"
+  p19: Contar con una red de contactos
+
+limpieza:
+  # Personas que respondieron el mismo valor en los 19 ítems (7 en los datos
+  # reales, todas con 5). No aportan información de "forma" y empujan todas las
+  # correlaciones hacia arriba (aquiescencia). Se excluyen del análisis principal
+  # y se reporta un análisis de sensibilidad con ellas.
+  excluir_respuesta_plana: true
+
+# Atributos sensibles: NUNCA entran a un modelo. Solo se usan para la auditoría
+# de sesgo (Paso 10).
+atributos_sensibles: [genero, rango_edad, estado_civil, nivel_educativo_grupo]
+
+# Agrupación del nivel educativo: varias categorías tienen <5 personas, lo que
+# impide reportarlas sin riesgo de reidentificación ni con potencia estadística.
+nivel_educativo_grupos:
+  Primaria: Básica o media
+  Bachillerato: Básica o media
+  Técnica: Técnica o tecnológica
+  Tecnología: Técnica o tecnológica
+  Universitaria: Universitaria
+  Especialización: Posgrado
+  Maestría: Posgrado
+  Doctorado: Posgrado
+
+sintetico:
+  # Se generan tantas filas como en los datos reales para conservar la potencia
+  # estadística comparable.
+  n: null  # null = mismo n que el crudo
+
+psicometria:
+  n_iter_paralelo: 1000      # réplicas del análisis paralelo
+  percentil_paralelo: 95     # criterio conservador (Glorfeld, 1995)
+  metodo_extraccion: minres  # factores comunes, no componentes
+  rotacion: oblimin          # oblicua: se espera que los factores correlacionen
+  carga_minima: 0.40         # carga principal mínima para asignar un ítem
+  diferencia_cruzada: 0.20   # carga principal - segunda carga < esto => carga cruzada
+  n_bootstrap: 500           # IC por bootstrap de alfa/omega y correlaciones
+
+reduccion:
+  items_por_factor: 3        # 3 es el mínimo para identificar un factor
+  r_minima_corto_largo: 0.90 # meta: la versión corta reproduce el puntaje largo
+
+segmentacion:
+  k_candidatos: [2, 3, 4, 5, 6]
+  algoritmos: [kmeans, ward, gmm_completa, lpa]
+  n_bootstrap: 200           # réplicas para la estabilidad (ARI)
+  fraccion_bootstrap: 0.8    # submuestreo sin reemplazo (evita duplicados en Ward/GMM)
+  n_init: 50                 # reinicios de K-means/GMM para evitar mínimos locales
+  ari_estable: 0.75          # umbral convencional de "estable" (Hennig, 2007)
+
+perfiles:
+  alfa: 0.05
+  correccion: holm
+
+modelo:
+  cv_splits: 5
+  cv_repeticiones: 20
+  # Si el modelo potente supera al interpretable por menos de esto en F1-macro,
+  # se prefiere el interpretable.
+  tolerancia_f1: 0.03
+
+sesgo:
+  n_minimo_celda: 5          # no se reportan celdas con menos personas

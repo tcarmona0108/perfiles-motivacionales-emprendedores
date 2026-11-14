@@ -1,0 +1,5 @@
+# Finales de línea LF en el repo para que CI (Linux) y Windows produzcan lo mismo.
+* text=auto eol=lf
+*.png binary
+*.joblib binary
+*.ipynb text eol=lf
