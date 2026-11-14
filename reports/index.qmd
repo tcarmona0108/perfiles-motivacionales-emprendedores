@@ -403,10 +403,11 @@ tabla(leer("resumen_antes_despues"), decimales=2)
 
 # Cómo reproducir
 
-Desde una terminal, con [uv](https://docs.astral.sh/uv/) y [Quarto](https://quarto.org) instalados:
+Código: [github.com/tcarmona0108/perfiles-motivacionales-emprendedores](https://github.com/tcarmona0108/perfiles-motivacionales-emprendedores). Desde una terminal, con [uv](https://docs.astral.sh/uv/) y [Quarto](https://quarto.org) instalados:
 
 ```bash
-git clone <repo> && cd <repo>
+git clone https://github.com/tcarmona0108/perfiles-motivacionales-emprendedores.git
+cd perfiles-motivacionales-emprendedores
 uv sync --locked
 uv run emprende all            # datos sintéticos; con los datos reales: --fuente real
 ```

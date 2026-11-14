@@ -1,0 +1,88 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 300" width="960" height="300" font-family="Segoe UI, Helvetica, Arial, sans-serif" role="img" aria-labelledby="titulo desc">
+  <title id="titulo">Pipeline del análisis</title>
+  <desc id="desc">Del cuestionario de 19 ítems a 3 motivaciones, un formulario de 8 preguntas, 2 perfiles descriptivos validados por estabilidad, un clasificador interpretable, un reporte Quarto y una demo Streamlit.</desc>
+  <defs>
+    <marker id="flecha" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#52514e"/>
+    </marker>
+  </defs>
+  <rect width="960" height="300" fill="#fcfcfb"/>
+  <text x="24" y="34" font-size="18" font-weight="700" fill="#0b0b0b">De un cuestionario largo a perfiles honestos y reproducibles</text>
+  <text x="24" y="56" font-size="12.5" fill="#52514e">Un comando (uv run emprende all) regenera todo · semilla fija · datos crudos nunca versionados</text>
+
+  <!-- Etapas -->
+  <g font-size="12" fill="#0b0b0b">
+    <g transform="translate(24,82)">
+      <rect width="134" height="120" rx="8" fill="#ffffff" stroke="#c9c8c2"/>
+      <rect width="134" height="6" rx="3" fill="#86b6ef"/>
+      <text x="12" y="30" font-weight="700">Cuestionario</text>
+      <text x="12" y="52" fill="#52514e">19 motivos</text>
+      <text x="12" y="70" fill="#52514e">Likert 1–5</text>
+      <text x="12" y="88" fill="#52514e">n = 123</text>
+      <text x="12" y="106" fill="#52514e">emprendedores</text>
+    </g>
+    <g transform="translate(180,82)">
+      <rect width="134" height="120" rx="8" fill="#ffffff" stroke="#c9c8c2"/>
+      <rect width="134" height="6" rx="3" fill="#86b6ef"/>
+      <text x="12" y="30" font-weight="700">Privacidad</text>
+      <text x="12" y="52" fill="#52514e">sin identificadores</text>
+      <text x="12" y="70" fill="#52514e">sintético público</text>
+      <text x="12" y="88" fill="#52514e">7 respuestas planas</text>
+      <text x="12" y="106" fill="#52514e">marcadas</text>
+    </g>
+    <g transform="translate(336,82)">
+      <rect width="134" height="120" rx="8" fill="#ffffff" stroke="#c9c8c2"/>
+      <rect width="134" height="6" rx="3" fill="#2a78d6"/>
+      <text x="12" y="30" font-weight="700">Psicometría</text>
+      <text x="12" y="52" fill="#52514e">policóricas</text>
+      <text x="12" y="70" fill="#52514e">análisis paralelo</text>
+      <text x="12" y="88" fill="#52514e">EFA oblicua, ω</text>
+      <text x="12" y="106" font-weight="700" fill="#1c5cab">→ 3 motivaciones</text>
+    </g>
+    <g transform="translate(492,82)">
+      <rect width="134" height="120" rx="8" fill="#ffffff" stroke="#c9c8c2"/>
+      <rect width="134" height="6" rx="3" fill="#2a78d6"/>
+      <text x="12" y="30" font-weight="700">Formulario corto</text>
+      <text x="12" y="52" fill="#52514e">ítems limpios de</text>
+      <text x="12" y="70" fill="#52514e">mayor carga</text>
+      <text x="12" y="88" fill="#52514e">r = 0.95 con el total</text>
+      <text x="12" y="106" font-weight="700" fill="#1c5cab">→ 8 preguntas</text>
+    </g>
+    <g transform="translate(648,82)">
+      <rect width="134" height="120" rx="8" fill="#ffffff" stroke="#c9c8c2"/>
+      <rect width="134" height="6" rx="3" fill="#2a78d6"/>
+      <text x="12" y="30" font-weight="700">Segmentación</text>
+      <text x="12" y="52" fill="#52514e">4 algoritmos, k 2–6</text>
+      <text x="12" y="70" fill="#52514e">estabilidad (ARI)</text>
+      <text x="12" y="88" fill="#52514e">vs. "sin grupos"</text>
+      <text x="12" y="106" font-weight="700" fill="#1c5cab">→ 2 perfiles</text>
+    </g>
+    <g transform="translate(804,82)">
+      <rect width="134" height="120" rx="8" fill="#ffffff" stroke="#c9c8c2"/>
+      <rect width="134" height="6" rx="3" fill="#2a78d6"/>
+      <text x="12" y="30" font-weight="700">Clasificador</text>
+      <text x="12" y="52" fill="#52514e">regresión logística</text>
+      <text x="12" y="70" fill="#52514e">CV 5×20</text>
+      <text x="12" y="88" fill="#52514e">auditoría de sesgo</text>
+      <text x="12" y="106" font-weight="700" fill="#1c5cab">→ F1-macro 0.89</text>
+    </g>
+  </g>
+
+  <!-- Flechas entre etapas -->
+  <g stroke="#52514e" stroke-width="1.6" marker-end="url(#flecha)">
+    <line x1="160" y1="142" x2="177" y2="142"/>
+    <line x1="316" y1="142" x2="333" y2="142"/>
+    <line x1="472" y1="142" x2="489" y2="142"/>
+    <line x1="628" y1="142" x2="645" y2="142"/>
+    <line x1="784" y1="142" x2="801" y2="142"/>
+  </g>
+
+  <!-- Salidas -->
+  <g font-size="12.5">
+    <line x1="871" y1="204" x2="871" y2="236" stroke="#52514e" stroke-width="1.6" marker-end="url(#flecha)"/>
+    <rect x="560" y="240" width="378" height="40" rx="8" fill="#eaf2fc" stroke="#86b6ef"/>
+    <text x="578" y="265" fill="#0b0b0b"><tspan font-weight="700">Salidas:</tspan> reporte Quarto (GitHub Pages) · demo Streamlit</text>
+    <rect x="24" y="240" width="510" height="40" rx="8" fill="#fff4e5" stroke="#ec9a8e"/>
+    <text x="42" y="265" fill="#0b0b0b"><tspan font-weight="700">Hallazgo clave:</tspan> los perfiles son cortes de un continuo, no tipos</text>
+  </g>
+</svg>
