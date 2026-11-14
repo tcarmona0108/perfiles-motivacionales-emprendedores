@@ -238,4 +238,5 @@ que ni siquiera una fila sintética parecida a una real conserva su demografía.
    datos reales, reportados de forma agregada.
 """
     ruta.parent.mkdir(parents=True, exist_ok=True)
-    ruta.write_text(texto, encoding="utf-8")
+    # newline="\n": mismo archivo byte a byte en Windows y Linux.
+    ruta.write_text(texto, encoding="utf-8", newline="\n")

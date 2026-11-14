@@ -49,7 +49,8 @@ def generar_sintetico(cfg: Config) -> None:
     sint = sintetico.muestrear(modelo, n, cfg.rng(desplazamiento=1))
     ruta = cfg.ruta(cfg["datos"]["sintetico"])
     ruta.parent.mkdir(parents=True, exist_ok=True)
-    sint.to_csv(ruta, index=False)
+    # LF explícito: el CSV versionado debe tener el mismo hash en Windows y Linux.
+    sint.to_csv(ruta, index=False, lineterminator="\n")
     metricas = sintetico.evaluar_fidelidad(real, datos.limpiar(sint, cfg), cfg)
     sintetico.escribir_ficha(
         cfg.ruta(cfg["datos"]["ficha_sintetico"]), metricas, modelo, n, cfg.semilla
